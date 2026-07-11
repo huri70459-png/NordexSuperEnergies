@@ -1,0 +1,61 @@
+<h2>Section 3 · Risks, testing, migration, rollout</h2>
+<p class="subtitle">Final design section before the written spec. Approve to lock full design.</p>
+
+<div class="section">
+  <p class="label">Risks &amp; mitigations</p>
+  <ul style="line-height:1.75">
+    <li><strong>Cinematic + Arctic Trust clash</strong> — Motion only on flagship chapters; chrome stays quiet.</li>
+    <li><strong>Misnamed legacy assets</strong> — Migrate by magic-byte first; never trust extensions.</li>
+    <li><strong>Lead form without backend</strong> — Explicit success UX + stub; <code>ponytail:</code> ceiling = no CRM until API exists.</li>
+    <li><strong>Brand / legal names</strong> — “Nordex Super Energies” treated as client brand fiction unless you supply legal copy; no false claims beyond existing draft.</li>
+    <li><strong>Figma drift</strong> — Generate Figma from built UI at end of Phase 1, not before tokens stabilize.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <p class="label">Migration order (implementation)</p>
+  <ol style="line-height:1.75">
+    <li>Scaffold Next.js + Tailwind v4 + shadcn under project root</li>
+    <li>Move assets to <code>public/assets/</code> with correct names</li>
+    <li>Extract legacy HTML → typed <code>src/content/*</code></li>
+    <li>Shell: layout, header, footer, tokens</li>
+    <li>Routes in funnel order: Contact form primitives → Home → Turbines → Services → Company → Sustainability</li>
+    <li>Cinematic motion pass + reduced-motion</li>
+    <li>SEO metadata + a11y pass</li>
+    <li>Figma generate for Home / Turbines / Contact + tokens</li>
+    <li>Remove obsolete root files; add <code>.gitignore</code></li>
+  </ol>
+</div>
+
+<div class="section">
+  <p class="label">Testing (minimum bar)</p>
+  <ul style="line-height:1.75">
+    <li>Typecheck + production build</li>
+    <li>Form validation unit (zod schema self-check)</li>
+    <li>Manual keyboard path: nav → contact → submit success</li>
+    <li>Chrome DevTools: mobile + desktop smoke, console clean</li>
+    <li>Reduced-motion smoke</li>
+  </ul>
+</div>
+
+<div class="section">
+  <p class="label">Out of Phase 1</p>
+  <ul style="line-height:1.75">
+    <li>CRM / email provider, Sanity CMS, i18n, auth portal</li>
+    <li>Hyperframes promo film (Phase 2 asset)</li>
+  </ul>
+</div>
+
+<div class="section">
+  <p class="label">Success criteria</p>
+  <ul style="line-height:1.75">
+    <li>6 routes live, lead form converts (UX), tokens consistent</li>
+    <li>Legacy broken filenames gone</li>
+    <li>Figma file mirrors system</li>
+    <li>Looks institutional (Arctic Trust), moves cinematically where intended</li>
+  </ul>
+</div>
+
+<div class="section">
+  <p class="subtitle">Reply <strong>yes</strong> to approve the full design. Next: write spec to <code>docs/superpowers/specs/2026-07-11-nordex-enterprise-reengineering-design.md</code> for your review — then implementation plan.</p>
+</div>

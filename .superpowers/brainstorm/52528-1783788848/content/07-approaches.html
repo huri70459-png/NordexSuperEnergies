@@ -1,0 +1,49 @@
+<h2>Decisions locked</h2>
+<div class="section">
+  <ul style="line-height:1.7;margin:0">
+    <li><strong>Product:</strong> Next.js + React + Tailwind v4 + shadcn</li>
+    <li><strong>IA:</strong> Multi-route — Home, Turbines, Services, Company, Sustainability, Contact</li>
+    <li><strong>Visual:</strong> Arctic Trust (light, institutional teal)</li>
+    <li><strong>Motion:</strong> Cinematic chapters on flagship surfaces</li>
+    <li><strong>Job:</strong> Qualified project leads</li>
+    <li><strong>Content:</strong> Polish existing copy into structured model</li>
+    <li><strong>Phase 1:</strong> Web app + Figma system mirror</li>
+  </ul>
+</div>
+
+<div class="section">
+  <p class="label">Implementation approaches</p>
+  <h3 style="margin-top:0.25rem">How we build Phase 1</h3>
+</div>
+
+<div class="options">
+  <div class="option" data-choice="approach-typed-content" onclick="toggleSelect(this)">
+    <div class="letter">1</div>
+    <div class="content">
+      <h3>Typed content modules + App Router (recommended)</h3>
+      <p><strong>Pros:</strong> Type-safe, no CMS ops, fast, content modeling principles without infrastructure, perfect for Figma-from-code.<br>
+      <strong>Cons:</strong> Non-dev content edits need a PR.<br>
+      <strong>Rejected alternative:</strong> Sanity day-one — rejected as YAGNI for lead-gen Phase 1.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="approach-mdx" onclick="toggleSelect(this)">
+    <div class="letter">2</div>
+    <div class="content">
+      <h3>MDX pages + shared components</h3>
+      <p><strong>Pros:</strong> Editorial feel, easy long-form.<br>
+      <strong>Cons:</strong> Weaker for specs/tabs/forms; more glue; worse for strict design system pages.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="approach-cms" onclick="toggleSelect(this)">
+    <div class="letter">3</div>
+    <div class="content">
+      <h3>Headless CMS from day one</h3>
+      <p><strong>Pros:</strong> Editor workflows, future omnichannel.<br>
+      <strong>Cons:</strong> Auth, schemas, env, draft/publish — delays visual quality. Phase 2+.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <p class="subtitle">Defaulting to <strong>Approach 1</strong> unless you pick otherwise. Next message: full design (architecture → components → data → a11y → Figma). Approve section-by-section in chat.</p>
+</div>

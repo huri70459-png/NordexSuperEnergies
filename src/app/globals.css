@@ -1,0 +1,137 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Arctic Trust — literal token values (no circular font vars) */
+@theme inline {
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+  --font-heading: "Geist", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: #f8fafc;
+  --color-foreground: #0f172a;
+  --color-card: #ffffff;
+  --color-card-foreground: #0f172a;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #0f172a;
+  --color-primary: #0f766e;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #0f172a;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #475569;
+  --color-accent: #ccfbf1;
+  --color-accent-foreground: #0f766e;
+  --color-destructive: #dc2626;
+  --color-border: #e2e8f0;
+  --color-input: #e2e8f0;
+  --color-ring: #0f766e;
+  --color-signature-bg: #0b3b36;
+  --color-signature-foreground: #f0fdfa;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
+  --shadow-md: 0 4px 12px rgb(15 23 42 / 0.08);
+  --shadow-lg: 0 12px 32px rgb(15 23 42 / 0.12);
+
+  --duration-instant: 100ms;
+  --duration-fast: 180ms;
+  --duration-base: 300ms;
+  --duration-cinematic: 700ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Fluid type scale (mobile → desktop) */
+  --text-display: clamp(2.25rem, 1.5rem + 3.5vw, 4rem);
+  --text-h1: clamp(1.875rem, 1.45rem + 1.8vw, 2.75rem);
+  --text-h2: clamp(1.5rem, 1.25rem + 1.1vw, 2rem);
+  --text-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --text-body: clamp(1rem, 0.975rem + 0.15vw, 1.0625rem);
+  --text-small: 0.875rem;
+  --text-mono: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
+}
+
+/* Arctic Trust type utilities */
+@layer utilities {
+  .text-display {
+    font-size: var(--text-display);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  .text-h1 {
+    font-size: var(--text-h1);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+
+  .text-h2 {
+    font-size: var(--text-h2);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+
+  .text-h3 {
+    font-size: var(--text-h3);
+    line-height: 1.3;
+    letter-spacing: 0;
+    font-weight: 600;
+  }
+
+  .text-body {
+    font-size: var(--text-body);
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  .text-small {
+    font-size: var(--text-small);
+    line-height: 1.5;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+
+  .text-mono {
+    font-family: var(--font-mono);
+    font-size: var(--text-mono);
+    line-height: 1.4;
+    letter-spacing: 0;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    @apply font-sans;
+  }
+}

@@ -1,0 +1,78 @@
+<h2>Section 2 · Product design (review)</h2>
+<p class="subtitle">Approach 1 + architecture approved. Review tokens, components, content, motion, a11y, Figma.</p>
+
+<div class="section">
+  <p class="label">Arctic Trust tokens (draft)</p>
+  <div class="mockup">
+    <div class="mockup-header">Semantic palette</div>
+    <div class="mockup-body" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:11px;font-family:system-ui">
+      <div><div style="height:36px;border-radius:8px;background:#f8fafc;border:1px solid #e2e8f0"></div>bg #f8fafc</div>
+      <div><div style="height:36px;border-radius:8px;background:#ffffff;border:1px solid #e2e8f0"></div>surface #fff</div>
+      <div><div style="height:36px;border-radius:8px;background:#0f766e"></div>primary #0f766e</div>
+      <div><div style="height:36px;border-radius:8px;background:#0f172a"></div>fg #0f172a</div>
+      <div><div style="height:36px;border-radius:8px;background:#115e59"></div>primary-hover</div>
+      <div><div style="height:36px;border-radius:8px;background:#ccfbf1"></div>accent soft</div>
+      <div><div style="height:36px;border-radius:8px;background:#64748b"></div>muted</div>
+      <div><div style="height:36px;border-radius:8px;background:#e2e8f0"></div>border</div>
+    </div>
+  </div>
+  <p class="subtitle" style="margin-top:8px">Type: <strong>Geist / Inter</strong> body · <strong>Geist / Outfit</strong> display · tabular nums for specs. Radius: 8–12px institutional (not bubbly).</p>
+</div>
+
+<div class="section">
+  <p class="label">Component layers</p>
+  <ol style="line-height:1.7">
+    <li><code>ui/*</code> — shadcn primitives only</li>
+    <li><code>layout/*</code> — SiteHeader, SiteFooter, MobileNav (Sheet), SkipLink</li>
+    <li><code>marketing/*</code> — HeroCinematic, StatGrid, SectionIntro, ProductModelTabs, ServiceCards, FaqAccordion, CtaBand</li>
+    <li><code>forms/*</code> — ProjectInquiryForm (name, email, company, capacity, message)</li>
+    <li><code>motion/*</code> — ScrollChapter, ParallaxMedia, CountUp, PageTransition (respect reduced-motion)</li>
+  </ol>
+</div>
+
+<div class="section">
+  <p class="label">Content model (typed, not page-shaped)</p>
+  <ul style="line-height:1.7">
+    <li><strong>Site</strong> — nav, footer, brand, default SEO</li>
+    <li><strong>TurbineModel</strong> — id, name, ratedPower, rotorDiameter, sweptArea, iecClass, features[]</li>
+    <li><strong>Service</strong> — id, title, summary, bullets[]</li>
+    <li><strong>Stat</strong> — value, label, optional suffix</li>
+    <li><strong>FaqItem</strong> — question, answer</li>
+    <li><strong>PageMeta</strong> — title, description, ogImage</li>
+    <li>Pages <em>compose</em> content; they don’t own freeform blobs</li>
+  </ul>
+</div>
+
+<div class="section">
+  <p class="label">Lead form (primary job)</p>
+  <ul style="line-height:1.7">
+    <li>Fields: Full name, Email, Company, Planned capacity (range 10–500 MW), Message</li>
+    <li>Zod client validation · inline errors · success panel</li>
+    <li>Phase 1 submit: client-side success + optional mailto / console stub</li>
+    <li>Persistent header CTA → <code>/contact</code> on every route</li>
+  </ul>
+</div>
+
+<div class="section">
+  <p class="label">Cinematic motion (scoped)</p>
+  <ul style="line-height:1.7">
+    <li><strong>Home:</strong> hero parallax media, pinned intro chapter, staggered stats</li>
+    <li><strong>Turbines:</strong> model tab crossfade + media ken-burns light</li>
+    <li><strong>Global:</strong> View Transitions between routes where supported</li>
+    <li><strong>Always:</strong> <code>prefers-reduced-motion: reduce</code> → instant states, no parallax</li>
+  </ul>
+</div>
+
+<div class="section">
+  <p class="label">Quality bar</p>
+  <ul style="line-height:1.7">
+    <li>WCAG 2.2 AA contrast, visible focus, keyboard nav, labeled form controls</li>
+    <li>Responsive: 360 → 1440+; sticky header; mobile Sheet nav</li>
+    <li>SEO: per-route metadata, OG, semantic landmarks</li>
+    <li>Figma Phase 1 end: tokens + key frames (Home, Turbines, Contact) pushed from built UI</li>
+  </ul>
+</div>
+
+<div class="section">
+  <p class="subtitle">Does Section 2 look right? Reply <strong>yes</strong> to lock and get Section 3 (risks, testing, rollout) — or list adjustments.</p>
+</div>

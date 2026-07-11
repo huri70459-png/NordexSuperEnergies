@@ -1,0 +1,83 @@
+<h2>Nordex Super Energies — Enterprise Reengineering</h2>
+<p class="subtitle">Visual brainstorm · work stays under this project folder only</p>
+
+<div class="section">
+  <p class="label">Current state (broken)</p>
+  <div class="mockup">
+    <div class="mockup-header">Folder inventory</div>
+    <div class="mockup-body">
+      <ul style="margin:0;padding-left:1.2rem;line-height:1.7">
+        <li><code>index (2).css</code> → actually the HTML page</li>
+        <li><code>index (2).html</code> → actually a JPEG</li>
+        <li><code>wind_farm_hero.jpg</code> → hero asset (loose)</li>
+        <li>Missing: real <code>index.css</code>, <code>assets/</code>, product image</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <p class="label">Target bar</p>
+  <p>Apple / Microsoft / Android platform quality: design tokens, accessibility, motion restraint, content structure, responsive polish — not a generic AI landing template.</p>
+</div>
+
+<div class="section">
+  <p class="label">Question 1 of N</p>
+  <h3 style="margin-top:0.25rem">What should we actually ship as the primary product?</h3>
+  <p class="subtitle">This decides stack, folder structure, and how deep shadcn / Figma / Hyperframes go. Click one.</p>
+</div>
+
+<div class="cards">
+  <div class="card" data-choice="a-marketing-app" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:1rem;min-height:140px;background:linear-gradient(145deg,#0b1220,#0f2a24);color:#e8fff6;font-family:system-ui">
+      <div style="font-size:11px;opacity:.7;letter-spacing:.08em;text-transform:uppercase">Recommended</div>
+      <div style="margin-top:1rem;font-weight:700;font-size:1.1rem">Next.js marketing site</div>
+      <div style="margin-top:.5rem;font-size:12px;opacity:.85;line-height:1.4">React · Tailwind v4 · shadcn · tokens · A11y · motion</div>
+      <div style="margin-top:1rem;display:flex;gap:6px">
+        <div style="height:8px;width:40%;background:#00c896;border-radius:4px"></div>
+        <div style="height:8px;width:20%;background:#3b82f6;border-radius:4px"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A · Enterprise web product</h3>
+      <p>App-grade single site: component library, design system, real sections, production structure. Figma later as mirror of the system. Hyperframes for optional promo video.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b-static-premium" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:1rem;min-height:140px;background:linear-gradient(145deg,#111,#1a1a1a);color:#f5f5f5;font-family:system-ui">
+      <div style="font-size:11px;opacity:.7;letter-spacing:.08em;text-transform:uppercase">Lean</div>
+      <div style="margin-top:1rem;font-weight:700;font-size:1.1rem">Static premium site</div>
+      <div style="margin-top:.5rem;font-size:12px;opacity:.85;line-height:1.4">HTML · CSS tokens · vanilla JS · no build</div>
+      <div style="margin-top:1rem">
+        <div style="height:48px;border:1px solid #333;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;opacity:.8">index.html + design tokens</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B · Zero-build marketing page</h3>
+      <p>Fix structure, rebuild CSS design system by hand, ship fast. No React/shadcn. Still enterprise visual quality, harder to scale as a multi-page product.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c-platform-suite" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:1rem;min-height:140px;background:linear-gradient(145deg,#0c1024,#1a1030);color:#f0e9ff;font-family:system-ui">
+      <div style="font-size:11px;opacity:.7;letter-spacing:.08em;text-transform:uppercase">Maximum</div>
+      <div style="margin-top:1rem;font-weight:700;font-size:1.1rem">Full suite</div>
+      <div style="margin-top:.5rem;font-size:12px;opacity:.85;line-height:1.4">Web app + CMS model + Figma lib + motion film</div>
+      <div style="margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:6px">
+        <div style="height:28px;background:#2a2150;border-radius:6px"></div>
+        <div style="height:28px;background:#2a2150;border-radius:6px"></div>
+        <div style="height:28px;background:#2a2150;border-radius:6px"></div>
+        <div style="height:28px;background:#2a2150;border-radius:6px"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C · Design + content platform</h3>
+      <p>Everything: Next app, structured content model, Figma design system, Hyperframes promo. Highest quality ceiling, multi-phase delivery.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <p class="subtitle">Click a card to select, then reply here in chat (or just confirm your choice). Recommendation: <strong>A</strong> — meets Apple/MS-level web standards without boiling the ocean on day one; C can be a later phase.</p>
+</div>
