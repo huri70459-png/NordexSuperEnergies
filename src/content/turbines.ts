@@ -63,5 +63,8 @@ export const turbinesPage = {
   platformTitle: "The 4 to 7 MW Turbine Class",
   platformSummary:
     "Our comprehensive turbine platform offers individual solutions for all geographic regions and climatic settings.",
-  cta: { label: "Request Technical Data", href: "/contact" },
+  cta: {
+    label: "Request technical data",
+    href: "/contact?intent=technical",
+  },
 }
