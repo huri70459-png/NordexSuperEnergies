@@ -16,12 +16,7 @@ export function SiteFooter() {
               {site.tagline}
             </p>
             <p className="mt-4 text-small text-muted-foreground">
-              <a
-                href={`mailto:${site.contact.email}`}
-                className="underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
-              >
-                {site.contact.email}
-              </a>
+              {site.contact.email}
             </p>
             <p className="mt-1 text-small text-muted-foreground">
               {site.contact.hq}

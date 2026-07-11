@@ -5,6 +5,7 @@ import Link from "next/link"
 import { MenuIcon } from "lucide-react"
 
 import { site } from "@/content/site"
+import { HeaderContactCta } from "@/components/layout/HeaderContactCta"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -45,11 +46,10 @@ export function MobileNav() {
               {item.label}
             </Link>
           ))}
-          <Button asChild className="mt-4 min-h-11 w-full">
-            <Link href="/contact" onClick={() => setOpen(false)}>
-              Contact Us
-            </Link>
-          </Button>
+          <HeaderContactCta
+            className="mt-4 min-h-11 w-full"
+            onNavigate={() => setOpen(false)}
+          />
         </nav>
       </SheetContent>
     </Sheet>

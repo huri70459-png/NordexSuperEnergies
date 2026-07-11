@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 import { site } from "@/content/site"
-import { Button } from "@/components/ui/button"
+import { HeaderContactCta } from "@/components/layout/HeaderContactCta"
 import { MobileNav } from "@/components/layout/MobileNav"
 
 export function SiteHeader() {
@@ -31,9 +31,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button asChild className="hidden min-h-11 md:inline-flex">
-            <Link href="/contact">Contact Us</Link>
-          </Button>
+          <HeaderContactCta className="hidden min-h-11 md:inline-flex" />
           <MobileNav />
         </div>
       </div>
