@@ -30,7 +30,6 @@ export function CtaBand({
   return (
     <section
       aria-labelledby="signature-cta-title"
-      // motion-cta-band: PR8 quiet-enter hook — reduced-motion stays instant via globals
       className={cn(
         "motion-cta-band bg-[var(--color-signature-bg)] text-[var(--color-signature-foreground)]",
         className

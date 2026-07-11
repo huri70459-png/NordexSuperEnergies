@@ -1,5 +1,21 @@
+import dynamic from "next/dynamic"
+
 import type { Stat } from "@/content/types"
 import { cn } from "@/lib/utils"
+
+// Motion island: client-only count-up stays out of the static RSC payload path.
+const StatCountUp = dynamic(
+  () =>
+    import("@/components/motion/StatCountUp").then((m) => m.StatCountUp),
+  {
+    ssr: true,
+    loading: () => (
+      <span className="tabular-nums opacity-0" aria-hidden>
+        0
+      </span>
+    ),
+  }
+)
 
 type StatGridProps = {
   stats: Stat[]
@@ -31,8 +47,9 @@ export function StatGrid({ stats, className, title, eyebrow }: StatGridProps) {
         <ul className="grid grid-cols-2 gap-6 sm:gap-8 lg:grid-cols-4">
           {stats.map((stat) => (
             <li key={stat.id} className="motion-stat-count min-w-0">
-              {/* motion-stat-count: PR8 count-up hook — static value until then */}
-              <p className="text-h2 tabular-nums text-primary">{stat.value}</p>
+              <p className="text-h2 text-primary">
+                <StatCountUp value={stat.value} />
+              </p>
               <p className="mt-2 text-small text-muted-foreground">
                 {stat.label}
               </p>

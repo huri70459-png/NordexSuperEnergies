@@ -111,6 +111,67 @@
   }
 }
 
+/* —— Cinematic motion (CSS-first; no-op under reduced-motion) —— */
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero media: gentle one-shot slow scale into place */
+  .motion-hero-media > img,
+  .motion-hero-media img {
+    animation: motion-hero-scale 12s var(--ease-emphasized) both;
+    transform-origin: center center;
+  }
+
+  @keyframes motion-hero-scale {
+    from {
+      transform: scale(1.06);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  /* Signature band quiet enter */
+  .motion-cta-band {
+    animation: motion-fade-up var(--duration-base) var(--ease-standard) both;
+  }
+
+  /* Chapter cards: staggered reveal (nth-child delays) */
+  .motion-reveal {
+    animation: motion-fade-up var(--duration-cinematic) var(--ease-emphasized)
+      both;
+  }
+
+  .motion-reveal:nth-child(1) {
+    animation-delay: 0ms;
+  }
+  .motion-reveal:nth-child(2) {
+    animation-delay: 80ms;
+  }
+  .motion-reveal:nth-child(3) {
+    animation-delay: 160ms;
+  }
+  .motion-reveal:nth-child(4) {
+    animation-delay: 240ms;
+  }
+
+  @keyframes motion-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* View Transitions crossfade (when experimental.viewTransition + browser support) */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: var(--duration-base);
+    animation-timing-function: var(--ease-standard);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -119,6 +180,22 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .motion-hero-media > img,
+  .motion-hero-media img,
+  .motion-cta-band,
+  .motion-reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Suppress view-transition theater when user prefers reduced motion */
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
   }
 }
 
@@ -133,5 +210,11 @@
 
   html {
     @apply font-sans;
+  }
+
+  /* Keyboard focus baseline for plain links / controls without explicit rings */
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
   }
 }

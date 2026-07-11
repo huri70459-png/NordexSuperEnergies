@@ -244,7 +244,7 @@ export function ProjectInquiryForm() {
           aria-describedby={
             errors.capacityMw ? "capacityMw-error" : "capacityMw-hint"
           }
-          className="h-11 border-0 bg-transparent px-0 shadow-none focus-visible:ring-0"
+          className="h-11 border-0 bg-transparent px-0 shadow-none focus-visible:ring-3 focus-visible:ring-ring/50"
         />
         <p id="capacityMw-hint" className="text-small text-muted-foreground">
           10–500 MW in steps of 10

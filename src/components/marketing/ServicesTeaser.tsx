@@ -61,7 +61,6 @@ export function ServicesTeaser({
             const Icon = serviceIcons[service.icon]
             return (
               <li key={service.id} className="motion-reveal min-h-0">
-                {/* motion-reveal: PR8 scroll-reveal hook — present, inert */}
                 <Link
                   href="/services"
                   className="block h-full rounded-xl focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50"

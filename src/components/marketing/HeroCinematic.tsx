@@ -30,7 +30,6 @@ export function HeroCinematic({
     <section
       aria-labelledby="home-hero-title"
       className={cn(
-        // motion-hero-media: PR8 parallax/scale hook — inert stub for now
         "relative overflow-hidden border-b border-border bg-background",
         className
       )}
@@ -65,6 +64,7 @@ export function HeroCinematic({
           </div>
         </div>
 
+        {/* CSS slow-scale on img when motion allowed — see globals.css */}
         <div className="motion-hero-media relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-muted shadow-md ring-1 ring-foreground/10 sm:aspect-[16/10] lg:aspect-square">
           <Image
             src={image.src}
@@ -73,7 +73,7 @@ export function HeroCinematic({
             priority
             quality={80}
             sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover object-center"
+            className="object-cover object-center will-change-transform"
           />
         </div>
       </div>
