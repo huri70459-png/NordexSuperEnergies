@@ -1,43 +1,32 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import type { Metadata } from "next"
+import Link from "next/link"
 
-export default function Home() {
+import { home } from "@/content/home"
+import { Button } from "@/components/ui/button"
+
+export const metadata: Metadata = {
+  title: home.meta.title,
+  description: home.meta.description,
+}
+
+export default function HomePage() {
+  const { hero } = home
+
   return (
-    <main className="flex flex-1 flex-col items-center justify-center gap-8 bg-background p-8">
-      <div className="max-w-xl space-y-3 text-center">
-        <p className="text-small text-muted-foreground">PR1 scaffold smoke</p>
-        <h1 className="text-display text-foreground">Nordex Super Energies</h1>
-        <p className="text-body text-muted-foreground">
-          Arctic Trust tokens, shadcn Button + Card, Next App Router.
-        </p>
+    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+      <p className="text-small font-medium text-primary">{hero.eyebrow}</p>
+      <h1 className="mt-3 text-display text-foreground">{hero.title}</h1>
+      <p className="mt-6 max-w-2xl text-body text-muted-foreground">
+        {hero.summary}
+      </p>
+      <div className="mt-8 flex flex-wrap gap-3">
+        <Button asChild className="min-h-11">
+          <Link href={hero.primaryCta.href}>{hero.primaryCta.label}</Link>
+        </Button>
+        <Button asChild variant="outline" className="min-h-11">
+          <Link href={hero.secondaryCta.href}>{hero.secondaryCta.label}</Link>
+        </Button>
       </div>
-
-      <Card className="w-full max-w-md shadow-sm">
-        <CardHeader>
-          <CardTitle className="text-h3">Scaffold check</CardTitle>
-          <CardDescription className="text-body">
-            Button and Card render with primary teal and institutional chrome.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p className="text-mono text-muted-foreground">
-            primary #0f766e · radius-md 0.625rem
-          </p>
-        </CardContent>
-        <CardFooter className="gap-3">
-          <Button type="button">Primary CTA</Button>
-          <Button type="button" variant="outline">
-            Secondary
-          </Button>
-        </CardFooter>
-      </Card>
-    </main>
-  );
+    </div>
+  )
 }

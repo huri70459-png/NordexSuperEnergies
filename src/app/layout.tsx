@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
+import { SkipLink } from "@/components/layout/SkipLink";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
+import { site } from "@/content/site";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,8 +19,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nordex Super Energies",
-  description: "Enterprise wind energy solutions — Arctic Trust marketing site",
+  title: site.defaultMeta.title,
+  description: site.defaultMeta.description,
+  metadataBase: new URL(site.siteUrl),
 };
 
 export default function RootLayout({
@@ -25,12 +32,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full`}
     >
       <body
-        className={`${geistSans.className} min-h-full flex flex-col font-sans`}
+        className={`${geistSans.className} flex min-h-dvh flex-col bg-background font-sans text-foreground antialiased`}
       >
-        {children}
+        <SkipLink />
+        <SiteHeader />
+        <main id="main" className="flex-1">
+          {children}
+        </main>
+        <SiteFooter />
       </body>
     </html>
   );
