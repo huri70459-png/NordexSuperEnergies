@@ -18,7 +18,7 @@ export const home = {
     secondaryCta: { label: "Our turbines", href: "/turbines" },
     image: {
       src: "/assets/wind_farm_hero.jpg",
-      alt: "Aerial view of an onshore wind farm at dusk",
+      alt: "Cutaway diagram of an onshore wind turbine showing labeled components including nacelle, blades, tower, and foundation",
     },
   },
   statsTeaser: companyStats,

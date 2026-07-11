@@ -1,8 +1,10 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 
+import { CtaBand } from "@/components/marketing/CtaBand"
+import { HeroCinematic } from "@/components/marketing/HeroCinematic"
+import { ServicesTeaser } from "@/components/marketing/ServicesTeaser"
+import { StatGrid } from "@/components/marketing/StatGrid"
 import { home } from "@/content/home"
-import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
   title: home.meta.title,
@@ -10,23 +12,26 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
-  const { hero } = home
+  const { hero, statsTeaser, servicesTeaser } = home
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-      <p className="text-small font-medium text-primary">{hero.eyebrow}</p>
-      <h1 className="mt-3 text-display text-foreground">{hero.title}</h1>
-      <p className="mt-6 max-w-2xl text-body text-muted-foreground">
-        {hero.summary}
-      </p>
-      <div className="mt-8 flex flex-wrap gap-3">
-        <Button asChild className="min-h-11">
-          <Link href={hero.primaryCta.href}>{hero.primaryCta.label}</Link>
-        </Button>
-        <Button asChild variant="outline" className="min-h-11">
-          <Link href={hero.secondaryCta.href}>{hero.secondaryCta.label}</Link>
-        </Button>
-      </div>
-    </div>
+    <>
+      <HeroCinematic
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        summary={hero.summary}
+        primaryCta={hero.primaryCta}
+        secondaryCta={hero.secondaryCta}
+        image={hero.image}
+      />
+      <StatGrid
+        stats={statsTeaser}
+        eyebrow="At a glance"
+        title="Proven scale for utility onshore wind"
+      />
+      <ServicesTeaser services={servicesTeaser} />
+      {/* Signature band: only Home imports CtaBand — once site-wide */}
+      <CtaBand />
+    </>
   )
 }
