@@ -1,0 +1,36 @@
+import type { Metadata } from "next"
+import { Header } from "@/components/header"
+import { FooterSection } from "@/components/sections/footer-section"
+import { IndustrialHero } from "@/components/industrial/industrial-hero"
+import {
+  FeaturedProjectsSection,
+  IndustrialCta,
+  ManufacturingSection,
+  MissionSection,
+  RenewableSection,
+  StatsSection,
+  SustainabilitySection,
+} from "@/components/industrial/industrial-sections"
+
+export const metadata: Metadata = {
+  title: "Energy Portfolio",
+  description:
+    "Nordex Super Energies — resources, offshore operations, renewables, and generation infrastructure across the energy value chain.",
+}
+
+export default function IndustrialPage() {
+  return (
+    <main id="main" className="theme-industrial nx-page bg-white text-[var(--ind-navy)] dark:bg-[var(--ind-navy)] dark:text-white">
+      <Header variant="overDark" />
+      <IndustrialHero />
+      <MissionSection />
+      <RenewableSection />
+      <ManufacturingSection />
+      <StatsSection />
+      <SustainabilitySection />
+      <FeaturedProjectsSection />
+      <IndustrialCta />
+      <FooterSection />
+    </main>
+  )
+}
