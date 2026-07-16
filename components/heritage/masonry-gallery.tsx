@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { LayoutGroup, motion } from "framer-motion"
 import { heritageItems, type HeritageItem } from "@/content/heritage"
 import { ArtifactCard } from "@/components/heritage/artifact-card"
@@ -10,6 +10,10 @@ import { cn } from "@/lib/utils"
 import { transitions } from "@/lib/motion"
 
 const GALLERY_PANEL_ID = "heritage-gallery-panel"
+
+function heritageTabId(cat: string) {
+  return `heritage-tab-${cat === "All" ? "all" : cat.replace(/\s+/g, "-").toLowerCase()}`
+}
 
 type MasonryGalleryProps = {
   filterCategory?: string | null
@@ -56,6 +60,20 @@ export function HeritageCategoryNav({
   onChange: (c: string) => void
   categories: readonly string[]
 }) {
+  // Keep active chip in view on the horizontal phone strip
+  useEffect(() => {
+    const el = document.getElementById(heritageTabId(active))
+    if (!el) return
+    const reduce =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    el.scrollIntoView({
+      behavior: reduce ? "auto" : "smooth",
+      inline: "center",
+      block: "nearest",
+    })
+  }, [active])
+
   return (
     <LayoutGroup>
       <div
@@ -65,7 +83,7 @@ export function HeritageCategoryNav({
       >
         {["All", ...categories].map((cat) => {
           const selected = active === cat
-          const tabId = `heritage-tab-${cat === "All" ? "all" : cat.replace(/\s+/g, "-").toLowerCase()}`
+          const tabId = heritageTabId(cat)
           return (
             <button
               key={cat}
@@ -84,11 +102,7 @@ export function HeritageCategoryNav({
                   const next = tabs[(i + 1) % tabs.length]
                   onChange(next)
                   requestAnimationFrame(() => {
-                    document
-                      .getElementById(
-                        `heritage-tab-${next === "All" ? "all" : next.replace(/\s+/g, "-").toLowerCase()}`,
-                      )
-                      ?.focus()
+                    document.getElementById(heritageTabId(next))?.focus()
                   })
                 }
                 if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
@@ -96,11 +110,7 @@ export function HeritageCategoryNav({
                   const prev = tabs[(i - 1 + tabs.length) % tabs.length]
                   onChange(prev)
                   requestAnimationFrame(() => {
-                    document
-                      .getElementById(
-                        `heritage-tab-${prev === "All" ? "all" : prev.replace(/\s+/g, "-").toLowerCase()}`,
-                      )
-                      ?.focus()
+                    document.getElementById(heritageTabId(prev))?.focus()
                   })
                 }
                 if (e.key === "Home") {

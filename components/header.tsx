@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useId, useCallback } from "react"
+import { useState, useEffect, useId, useCallback, useRef } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
@@ -9,6 +9,9 @@ import { ThemeToggle } from "@/components/shared/theme-toggle"
 import { BRAND, SITE_NAV } from "@/content/brand"
 
 const navLinks = SITE_NAV
+
+const FOCUSABLE_SEL =
+  'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
 type HeaderProps = {
   /** overDark = white text until scroll (heroes). solid = always ink on glass. */
@@ -20,6 +23,9 @@ export function Header({ variant = "overDark" }: HeaderProps) {
   const menuId = useId()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const headerRef = useRef<HTMLElement>(null)
+  const wasMenuOpen = useRef(false)
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 24)
@@ -43,14 +49,64 @@ export function Header({ variant = "overDark" }: HeaderProps) {
 
   const closeMenu = useCallback(() => setIsMenuOpen(false), [])
 
+  // Focus trap + Escape; restore focus to menu button on close
   useEffect(() => {
-    if (!isMenuOpen) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeMenu()
+    if (isMenuOpen) {
+      wasMenuOpen.current = true
+      const panel = document.getElementById(menuId)
+      const firstLink = panel?.querySelector<HTMLElement>("a[href]")
+      // Move focus into the panel so keyboard users land in the menu
+      requestAnimationFrame(() => firstLink?.focus())
+
+      /** Mobile chrome only — fixed-header offsetParent is unreliable */
+      const getFocusables = () => {
+        const out: HTMLElement[] = []
+        const mobileBar = menuButtonRef.current?.parentElement
+        if (mobileBar) {
+          out.push(...Array.from(mobileBar.querySelectorAll<HTMLElement>(FOCUSABLE_SEL)))
+        }
+        if (panel) {
+          out.push(...Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE_SEL)))
+        }
+        return out.filter((el, i, arr) => arr.indexOf(el) === i)
+      }
+
+      const onKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") {
+          e.preventDefault()
+          closeMenu()
+          return
+        }
+        if (e.key !== "Tab") return
+
+        const focusables = getFocusables()
+        if (focusables.length === 0) return
+
+        const first = focusables[0]
+        const last = focusables[focusables.length - 1]
+        const active = document.activeElement as HTMLElement | null
+        const inTrap = active ? focusables.includes(active) : false
+
+        if (e.shiftKey) {
+          if (!inTrap || active === first) {
+            e.preventDefault()
+            last.focus()
+          }
+        } else if (!inTrap || active === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
+
+      document.addEventListener("keydown", onKeyDown)
+      return () => document.removeEventListener("keydown", onKeyDown)
     }
-    window.addEventListener("keydown", onKey)
-    return () => window.removeEventListener("keydown", onKey)
-  }, [isMenuOpen, closeMenu])
+
+    if (wasMenuOpen.current) {
+      wasMenuOpen.current = false
+      menuButtonRef.current?.focus()
+    }
+  }, [isMenuOpen, closeMenu, menuId])
 
   const solid = variant === "solid" || isScrolled || isMenuOpen
 
@@ -67,6 +123,7 @@ export function Header({ variant = "overDark" }: HeaderProps) {
       ) : null}
 
       <header
+        ref={headerRef}
         className={cn(
           "fixed z-50 w-full transition-[background,box-shadow,color] duration-300 ease-[var(--ease-out-soft)]",
           "left-0 right-0 top-0",
@@ -139,6 +196,7 @@ export function Header({ variant = "overDark" }: HeaderProps) {
             <div className="flex items-center gap-0.5 md:hidden">
               <ThemeToggle solid={solid} />
               <button
+                ref={menuButtonRef}
                 type="button"
                 onClick={() => setIsMenuOpen((o) => !o)}
                 className={cn(
@@ -161,6 +219,8 @@ export function Header({ variant = "overDark" }: HeaderProps) {
               isMenuOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
             )}
             aria-hidden={!isMenuOpen}
+            // ponytail: inert keeps closed drawer out of tab order without extra tabIndex plumbing
+            {...(!isMenuOpen ? { inert: true } : {})}
           >
             <div className="overflow-hidden">
               <nav

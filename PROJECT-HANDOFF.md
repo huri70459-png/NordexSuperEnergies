@@ -44,8 +44,9 @@ Dual-division institutional site:
 
 - [x] Phase 1 polish: CTAs, motion, type floor, hero offset, header radius  
 - [x] Phase 2 Energy length: drop timeline + featured; stats use `--section-y-sm`  
+- [x] Phase 3 a11y/cleanup: mobile focus trap, heritage tab scrollIntoView, dead CSS purge  
 - [ ] Visual QA polish from manual review notes  
-- [ ] Phase 3: mobile nav focus trap / dead CSS purge  
+
 
 - [ ] Contact / careers / social real URLs when available  
 - [ ] Production deploy (Vercel or host of choice)  
