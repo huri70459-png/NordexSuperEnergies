@@ -79,9 +79,9 @@ export function Header({ variant = "overDark" }: HeaderProps) {
           className={cn(
             "overflow-hidden transition-all duration-300 ease-[var(--ease-out-soft)]",
             solid
-              ? "rounded-2xl border border-border/60 bg-background/95 shadow-sm backdrop-blur-md sm:rounded-full"
-              : "rounded-2xl border border-transparent bg-transparent sm:rounded-full",
-            isMenuOpen && "rounded-2xl sm:rounded-full",
+              ? "rounded-sm border border-border/60 bg-background/95 shadow-sm backdrop-blur-md"
+              : "rounded-sm border border-transparent bg-transparent",
+            isMenuOpen && "rounded-sm",
           )}
         >
           <div className="flex h-12 items-center justify-between gap-2 px-2 pl-3.5 sm:h-auto sm:gap-3 sm:px-2 sm:py-2 sm:pl-5">
@@ -128,7 +128,7 @@ export function Header({ variant = "overDark" }: HeaderProps) {
               <Link
                 href="/industrial"
                 className={cn(
-                  "nx-btn px-4 py-2 text-[11px]",
+                  "nx-btn px-4 py-2",
                   solid ? "nx-btn-solid" : "nx-btn-on-dark-solid",
                 )}
               >
@@ -142,7 +142,7 @@ export function Header({ variant = "overDark" }: HeaderProps) {
                 type="button"
                 onClick={() => setIsMenuOpen((o) => !o)}
                 className={cn(
-                  "inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors",
+                  "inline-flex h-11 w-11 items-center justify-center rounded-sm transition-colors",
                   solid ? "text-foreground" : "text-white",
                 )}
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -177,7 +177,7 @@ export function Header({ variant = "overDark" }: HeaderProps) {
                       key={link.href}
                       href={link.href}
                       className={cn(
-                        "flex min-h-12 items-center rounded-xl px-3 text-base font-medium transition-colors",
+                        "flex min-h-12 items-center rounded-sm px-3 text-base font-medium transition-colors",
                         active
                           ? "bg-secondary text-foreground"
                           : "text-foreground/90 active:bg-secondary/70",

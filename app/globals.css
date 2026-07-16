@@ -320,6 +320,15 @@
   line-height: 1.4;
 }
 
+/* Meta / labels — 12px floor (readable on mid-range phones) */
+.nx-meta {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
 .nx-h2 {
   font-size: clamp(1.75rem, 4.5vw, 3.5rem);
   font-weight: 600;
@@ -362,9 +371,9 @@
   border: 1px solid color-mix(in srgb, var(--border) 100%, transparent);
   border-radius: var(--radius);
   background: var(--card);
+  /* Chrome hover = base clock; media scale stays slow on .nx-media img */
   transition:
-    transform var(--duration-slow) var(--ease-out-expo),
-    box-shadow var(--duration-slow) var(--ease-out-soft),
+    box-shadow var(--duration-base) var(--ease-out-soft),
     border-color var(--duration-base) var(--ease-out-soft);
 }
 
@@ -418,7 +427,7 @@
   align-items: center;
   justify-content: center;
   padding: 0.75rem 1.75rem;
-  font-size: 0.6875rem;
+  font-size: var(--text-xs); /* 12px floor */
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -432,6 +441,16 @@
 .nx-btn:focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
+}
+/* Stack full-width on phone; fixed min width from sm */
+.nx-btn-wide {
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .nx-btn-wide {
+    width: auto;
+    min-width: 11rem;
+  }
 }
 .nx-btn-solid {
   border: 1px solid var(--foreground);
@@ -471,6 +490,31 @@
 }
 .nx-btn-on-dark:focus-visible {
   outline-color: #fff;
+}
+/* Energy division — emerald ghost on dark media */
+.nx-btn-energy {
+  border: 1px solid color-mix(in srgb, var(--ind-emerald, var(--primitive-emerald-500)) 55%, transparent);
+  background: color-mix(in srgb, var(--ind-emerald, var(--primitive-emerald-500)) 15%, transparent);
+  color: #fff;
+}
+.nx-btn-energy:hover {
+  background: color-mix(in srgb, var(--ind-emerald, var(--primitive-emerald-500)) 25%, transparent);
+}
+.nx-btn-energy:focus-visible {
+  outline-color: var(--ind-emerald, var(--primitive-emerald-500));
+}
+/* Heritage division — gold ghost on charcoal / dark media */
+.nx-btn-heritage {
+  border: 1px solid color-mix(in srgb, var(--heritage-gold, var(--primitive-gold)) 55%, transparent);
+  background: color-mix(in srgb, var(--heritage-gold, var(--primitive-gold)) 10%, transparent);
+  color: var(--heritage-ivory, var(--primitive-ivory));
+}
+.nx-btn-heritage:hover {
+  border-color: var(--heritage-gold, var(--primitive-gold));
+  background: color-mix(in srgb, var(--heritage-gold, var(--primitive-gold)) 18%, transparent);
+}
+.nx-btn-heritage:focus-visible {
+  outline-color: var(--heritage-focus, var(--primitive-gold));
 }
 
 /* Sticky mobile bottom pad so fixed bars don't cover CTAs */

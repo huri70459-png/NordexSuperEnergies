@@ -37,7 +37,7 @@ export function CategoryStorySections() {
             className="h-full min-h-0"
           >
             <div className="flex h-full min-h-[11.5rem] flex-col bg-[var(--heritage-ivory)] p-6 md:min-h-[13rem] md:p-8">
-              <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--heritage-bronze)] md:mb-4">
+              <p className="nx-meta mb-3 tracking-[0.2em] text-[var(--heritage-bronze)] md:mb-4">
                 {String(i + 1).padStart(2, "0")}
               </p>
               <h3 className="font-display text-xl leading-snug tracking-[-0.015em] text-[var(--heritage-charcoal)] md:text-[1.35rem]">

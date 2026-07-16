@@ -32,7 +32,7 @@ export function AboutSection() {
               i >= 2 && "border-b-0",
             )}
           >
-            <p className="mb-2 text-[10px] uppercase tracking-widest text-muted-foreground sm:text-xs">
+            <p className="nx-meta mb-2 tracking-widest text-muted-foreground">
               {stat.label}
             </p>
             <p className="text-2xl font-medium text-foreground sm:text-3xl md:text-4xl">

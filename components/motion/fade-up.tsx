@@ -3,7 +3,7 @@
 import { useRef, type ReactNode, type ElementType } from "react"
 import { motion, useInView, useReducedMotion, type HTMLMotionProps } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { easeOutExpo } from "@/lib/motion"
+import { easeOutExpo, transitions } from "@/lib/motion"
 
 type FadeUpProps = {
   children: ReactNode
@@ -50,7 +50,7 @@ export function FadeUp({
       initial={reduceMotion ? false : hidden}
       animate={reduceMotion || inView ? visible : hidden}
       transition={{
-        duration: reduceMotion ? 0 : 0.62,
+        duration: reduceMotion ? 0 : transitions.reveal.duration,
         delay: reduceMotion ? 0 : delayMs / 1000,
         ease: easeOutExpo,
       }}

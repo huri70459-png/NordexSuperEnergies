@@ -50,10 +50,10 @@ export function ArtifactCard({ item, className, tall }: ArtifactCardProps) {
         {/* Museum label: category · era → title → body → origin rule */}
         <div className="border-t border-[var(--heritage-card-border)] px-5 py-5 md:px-6 md:py-6">
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1.5">
-            <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--heritage-bronze)]">
+            <span className="nx-meta text-[var(--heritage-bronze)]">
               {item.category}
             </span>
-            <span className="text-[11px] tabular-nums tracking-wide text-[var(--heritage-meta)]">
+            <span className="text-xs tabular-nums tracking-wide text-[var(--heritage-meta)]">
               {item.era}
             </span>
           </div>
@@ -66,7 +66,7 @@ export function ArtifactCard({ item, className, tall }: ArtifactCardProps) {
             {item.description}
           </p>
 
-          <p className="mt-4 border-t border-[var(--heritage-card-border)] pt-3 text-[11px] uppercase tracking-[0.14em] text-[var(--heritage-meta)]">
+          <p className="nx-meta mt-4 border-t border-[var(--heritage-card-border)] pt-3 tracking-[0.14em] text-[var(--heritage-meta)]">
             {item.origin}
           </p>
         </div>

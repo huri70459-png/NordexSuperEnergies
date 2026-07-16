@@ -159,7 +159,7 @@ export function StatsSection() {
                   i === industrialStats.length - 1 && "md:border-r-0",
                 )}
               >
-                <p className="mb-2 text-[10px] uppercase tracking-[0.18em] text-white/60 sm:mb-3 sm:tracking-[0.22em]">
+                <p className="nx-meta mb-2 text-white/60 sm:mb-3 sm:tracking-[0.2em]">
                   {stat.label}
                 </p>
                 <p className="font-energy text-2xl font-semibold tracking-tight text-white sm:text-3xl md:text-4xl">
@@ -246,7 +246,7 @@ export function SustainabilitySection() {
               className="flex items-center gap-4 text-left sm:flex-col sm:text-center"
             >
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-[var(--ind-emerald)]/50 bg-[var(--ind-emerald)]/10 sm:mx-auto sm:mb-4 sm:h-24 sm:w-24">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[var(--ind-emerald)] sm:text-sm">
+                <span className="nx-meta font-semibold tracking-wider text-[var(--ind-emerald)] sm:text-sm">
                   {ring.title}
                 </span>
               </div>
@@ -307,7 +307,7 @@ export function FeaturedProjectsSection() {
                   </p>
                   <dl className="mt-8 flex flex-wrap gap-8">
                     <div>
-                      <dt className="text-[10px] uppercase tracking-[0.2em] text-[var(--ind-steel)]">
+                      <dt className="nx-meta tracking-[0.2em] text-[var(--ind-steel)]">
                         Location
                       </dt>
                       <dd className="mt-1 text-sm font-medium text-[var(--ind-navy)] dark:text-white">
@@ -316,7 +316,7 @@ export function FeaturedProjectsSection() {
                     </div>
                     {project.metric && (
                       <div>
-                        <dt className="text-[10px] uppercase tracking-[0.2em] text-[var(--ind-steel)]">
+                        <dt className="nx-meta tracking-[0.2em] text-[var(--ind-steel)]">
                           Scale
                         </dt>
                         <dd className="mt-1 text-sm font-medium text-[var(--ind-navy)] dark:text-white">
@@ -357,16 +357,10 @@ export function IndustrialCta() {
           </div>
 
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-stretch sm:justify-end">
-            <Link
-              href={industrialCta.primary.href}
-              className="nx-touch inline-flex w-full items-center justify-center border border-[var(--ind-emerald)]/55 bg-[var(--ind-emerald)]/15 px-6 py-3 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-white transition-colors duration-[var(--duration-fast)] hover:bg-[var(--ind-emerald)]/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ind-emerald)] sm:w-auto sm:min-w-[11rem]"
-            >
+            <Link href={industrialCta.primary.href} className="nx-btn nx-btn-energy nx-btn-wide">
               {industrialCta.primary.label}
             </Link>
-            <Link
-              href={industrialCta.secondary.href}
-              className="nx-touch inline-flex w-full items-center justify-center border border-white/25 px-6 py-3 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-white/85 transition-colors duration-[var(--duration-fast)] hover:border-white/45 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto sm:min-w-[11rem]"
-            >
+            <Link href={industrialCta.secondary.href} className="nx-btn nx-btn-on-dark nx-btn-wide">
               {industrialCta.secondary.label}
             </Link>
           </div>

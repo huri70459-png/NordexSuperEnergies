@@ -23,16 +23,10 @@ export function HeritageCta() {
           </div>
 
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-stretch sm:justify-end">
-            <Link
-              href="/industrial"
-              className="nx-touch inline-flex w-full items-center justify-center border border-[var(--heritage-gold)]/60 bg-[var(--heritage-gold)]/10 px-6 py-3 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--heritage-ivory)] transition-colors duration-[var(--duration-fast)] hover:bg-[var(--heritage-gold)]/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--heritage-focus)] sm:w-auto sm:min-w-[11rem]"
-            >
+            <Link href="/industrial" className="nx-btn nx-btn-heritage nx-btn-wide">
               Energy division
             </Link>
-            <Link
-              href="/"
-              className="nx-touch inline-flex w-full items-center justify-center border border-[var(--heritage-ivory)]/25 px-6 py-3 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-[var(--heritage-beige)] transition-colors duration-[var(--duration-fast)] hover:border-[var(--heritage-ivory)]/45 hover:text-[var(--heritage-ivory)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--heritage-focus)] sm:w-auto sm:min-w-[11rem]"
-            >
+            <Link href="/" className="nx-btn nx-btn-on-dark nx-btn-wide">
               Home
             </Link>
           </div>

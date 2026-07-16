@@ -4,9 +4,14 @@ export const easeOutExpo = [0.22, 1, 0.36, 1] as const
 export const easeOutSoft = [0.16, 1, 0.3, 1] as const
 
 export const transitions = {
-  /** Page enter / section reveal */
+  /** Section / scroll reveal — MASTER base tier (~320ms chrome; section ~520ms) */
   reveal: {
-    duration: 0.7,
+    duration: 0.52,
+    ease: easeOutExpo,
+  },
+  /** Hero headline / primary mount */
+  hero: {
+    duration: 0.55,
     ease: easeOutExpo,
   },
   /** Snappy UI chrome */
@@ -29,7 +34,7 @@ export const transitions = {
 } as const
 
 export const fadeUpVariants = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 18 },
   visible: { opacity: 1, y: 0 },
 } as const
 
@@ -39,6 +44,6 @@ export const fadeInVariants = {
 } as const
 
 export const scaleInVariants = {
-  hidden: { opacity: 0, scale: 0.96 },
-  visible: { opacity: 1, scale: 1 },
+  hidden: { opacity: 0, scale: 0.97, y: 10 },
+  visible: { opacity: 1, scale: 1, y: 0 },
 } as const

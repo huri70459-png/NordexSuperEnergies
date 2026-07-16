@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { motion, useReducedMotion } from "framer-motion"
 import { heritageHero } from "@/content/heritage"
 import { ScrollHint } from "@/components/shared/scroll-hint"
-import { easeOutExpo } from "@/lib/motion"
+import { easeOutExpo, transitions } from "@/lib/motion"
 
 export function HeritageHero() {
   const [offset, setOffset] = useState(0)
@@ -50,7 +50,7 @@ export function HeritageHero() {
           className="mb-5 flex flex-col items-center gap-3 sm:mb-7 sm:gap-4"
           initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: easeOutExpo }}
+          transition={{ duration: transitions.hero.duration, ease: easeOutExpo }}
         >
           <p className="nx-eyebrow text-[var(--heritage-gold)]">{heritageHero.eyebrow}</p>
           <span
@@ -61,28 +61,28 @@ export function HeritageHero() {
 
         <motion.h1
           className="font-display max-w-4xl text-balance text-[clamp(2.25rem,7.5vw,4.25rem)] leading-[1.08] tracking-[-0.02em] text-[var(--heritage-ivory)]"
-          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.06, ease: easeOutExpo }}
+          transition={{ duration: transitions.hero.duration, delay: 0.06, ease: easeOutExpo }}
         >
           {heritageHero.headline}
         </motion.h1>
 
         <motion.p
           className="mx-auto mt-5 max-w-xl text-pretty text-[0.9375rem] leading-[1.7] text-[var(--heritage-beige)]/90 sm:mt-6 sm:text-base md:max-w-2xl md:text-lg md:leading-[1.75]"
-          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.14, ease: easeOutExpo }}
+          transition={{ duration: transitions.reveal.duration, delay: 0.12, ease: easeOutExpo }}
         >
           {heritageHero.subheading}
         </motion.p>
 
         <motion.a
           href="#collection"
-          className="nx-touch mt-8 inline-flex min-w-[10.5rem] items-center justify-center border border-[var(--heritage-gold)]/55 bg-transparent px-7 py-3 text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--heritage-ivory)] transition-colors duration-[var(--duration-fast)] hover:border-[var(--heritage-gold)] hover:bg-[var(--heritage-gold)]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--heritage-focus)] sm:mt-10"
+          className="nx-btn nx-btn-heritage mt-8 min-w-[10.5rem] sm:mt-10"
           initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.22, ease: easeOutExpo }}
+          transition={{ duration: transitions.hero.duration, delay: 0.2, ease: easeOutExpo }}
         >
           View collection
         </motion.a>

@@ -7,7 +7,7 @@ import { motion, useReducedMotion } from "framer-motion"
 import { industrialHero } from "@/content/industrial"
 import { EnergyParticles } from "@/components/industrial/energy-particles"
 import { ScrollHint } from "@/components/shared/scroll-hint"
-import { easeOutExpo } from "@/lib/motion"
+import { easeOutExpo, transitions } from "@/lib/motion"
 
 export function IndustrialHero() {
   const reduce = useReducedMotion()
@@ -71,28 +71,28 @@ export function IndustrialHero() {
         <EnergyParticles className="absolute inset-0 z-[1] h-full w-full opacity-60" particleCount={56} />
       )}
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[var(--content-max)] flex-col items-center justify-center px-[max(var(--section-x),var(--safe-left))] pr-[max(var(--section-x),var(--safe-right))] pt-[max(5.25rem,calc(var(--safe-top)+3.5rem))] pb-[max(3.5rem,var(--safe-bottom))] text-center">
+      <div className="relative z-10 mx-auto flex w-full max-w-[var(--content-max)] flex-col items-center justify-center px-[max(var(--section-x),var(--safe-left))] pr-[max(var(--section-x),var(--safe-right))] pt-[max(var(--header-offset),calc(var(--safe-top)+4.5rem))] pb-[max(3.5rem,var(--safe-bottom))] text-center">
         <motion.p
           className="nx-eyebrow mb-4 text-[var(--ind-emerald-soft,var(--ind-emerald))] sm:mb-5"
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: easeOutExpo }}
+          transition={{ duration: transitions.hero.duration, ease: easeOutExpo }}
         >
           {industrialHero.eyebrow}
         </motion.p>
         <motion.h1
           className="font-energy max-w-5xl text-balance text-[clamp(2.25rem,8.5vw,4.25rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-white sm:leading-[1.05]"
-          initial={reduce ? false : { opacity: 0, y: 24 }}
+          initial={reduce ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.08, ease: easeOutExpo }}
+          transition={{ duration: transitions.hero.duration, delay: 0.08, ease: easeOutExpo }}
         >
           {industrialHero.headline}
         </motion.h1>
         <motion.p
           className="mt-4 max-w-2xl text-pretty text-[0.9375rem] leading-relaxed text-white/85 sm:mt-5 sm:text-base md:text-lg md:leading-[1.7]"
-          initial={reduce ? false : { opacity: 0, y: 20 }}
+          initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.16, ease: easeOutExpo }}
+          transition={{ duration: transitions.reveal.duration, delay: 0.14, ease: easeOutExpo }}
         >
           {industrialHero.subheading}
         </motion.p>
@@ -101,17 +101,17 @@ export function IndustrialHero() {
           className="mt-8 flex w-full max-w-md flex-col gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4"
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.24, ease: easeOutExpo }}
+          transition={{ duration: transitions.hero.duration, delay: 0.22, ease: easeOutExpo }}
         >
           <Link
             href={industrialHero.ctaPrimary.href}
-            className="nx-touch inline-flex w-full items-center justify-center border border-[var(--ind-emerald)]/55 bg-[var(--ind-emerald)]/15 px-6 py-3 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-white transition-colors duration-[var(--duration-fast)] hover:bg-[var(--ind-emerald)]/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ind-emerald)] sm:w-auto sm:min-w-[12rem]"
+            className="nx-btn nx-btn-energy nx-btn-wide sm:min-w-[12rem]"
           >
             {industrialHero.ctaPrimary.label}
           </Link>
           <Link
             href={industrialHero.ctaSecondary.href}
-            className="nx-touch inline-flex w-full items-center justify-center border border-white/25 px-6 py-3 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-white/90 transition-colors duration-[var(--duration-fast)] hover:border-white/45 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto sm:min-w-[12rem]"
+            className="nx-btn nx-btn-on-dark nx-btn-wide sm:min-w-[12rem]"
           >
             {industrialHero.ctaSecondary.label}
           </Link>

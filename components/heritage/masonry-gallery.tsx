@@ -113,7 +113,7 @@ export function HeritageCategoryNav({
                 }
               }}
               className={cn(
-                "heritage-filter-tab nx-touch relative shrink-0 px-3.5 py-2.5 text-[11px] uppercase tracking-[0.16em] transition-colors",
+                "heritage-filter-tab nx-meta nx-touch relative shrink-0 px-3.5 py-2.5 transition-colors",
                 "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--heritage-focus)]",
                 selected
                   ? "font-medium text-[var(--heritage-filter-active)]"
@@ -171,7 +171,7 @@ export function HeritageGallerySection() {
             categories={categories}
           />
           <p
-            className="mt-4 text-[11px] font-medium uppercase tracking-[0.16em] text-[var(--heritage-meta)] md:mt-5"
+            className="nx-meta mt-4 text-[var(--heritage-meta)] md:mt-5"
             aria-atomic="true"
             aria-live="polite"
           >
