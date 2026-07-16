@@ -2,6 +2,10 @@
 
 Overrides `design-system/MASTER.md` for this route only. Nav label: **Energy**.
 
+## Status
+
+**Done** on `pre-deploy` — polish only unless user requests changes. See root `PROJECT-HANDOFF.md`.
+
 ## Intent
 
 Enterprise **energy portfolio** (resources → oil & gas → renewables → generation/infra), not a pure nuclear brochure and not e-commerce. Photography is local; words match images.

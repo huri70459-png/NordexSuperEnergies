@@ -13,6 +13,10 @@ Institutional **dual-division gateway** (Energy + Antiques). Not e-commerce, not
 - Type: Inter body; eyebrows via `.nx-eyebrow`; CTAs via `.nx-btn*`
 - Layout: `SectionShell` for mission, collection, about rhythm
 
+## Status
+
+**Done** on `pre-deploy` (audit polish included). See root `PROJECT-HANDOFF.md`.
+
 ## Section order
 
 1. Header (`overDark` over hero)

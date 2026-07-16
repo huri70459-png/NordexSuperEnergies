@@ -1,24 +1,46 @@
-# Nordex Super Energies — Enterprise marketing site (Phase 1)
+# Nordex Super Energies
 
-Next.js App Router marketing site for a wind-energy enterprise brand draft. Phase 1 covers public pages, content modules, SEO shell, and a contact inquiry form.
+Institutional dual-division marketing site:
+
+- **Home** `/` — gateway (Energy + Antiques)
+- **Antiques** `/heritage` — museum collection
+- **Energy** `/industrial` — energy portfolio (resources, oil & gas, renewables, generation/infra)
+
+## Stack
+
+Next.js 16 · Tailwind CSS v4 · Framer Motion · `next/image` · content modules under `content/`
+
+## Branch
+
+Primary snapshot for deploy review: **`pre-deploy`**  
+https://github.com/huri70459-png/Nordex-Super-Energies2/tree/pre-deploy
 
 ## Commands
 
 ```bash
-npm run dev    # local dev server (http://localhost:3000)
-npm run build  # production build
-npm start      # serve the production build
+npm install
+npm run dev      # http://localhost:3000
+npm run build
+npm start
+npx tsc --noEmit
 ```
 
-## Contact form
+## Design system
 
-The project inquiry form is an **honest stub**: client-side validation (Zod), honeypot, and success UI only. **No CRM, email, or backend submission** in Phase 1.
+- Global: [`design-system/MASTER.md`](design-system/MASTER.md)
+- Pages: [`design-system/pages/`](design-system/pages/)
+- Project handoff: [`PROJECT-HANDOFF.md`](PROJECT-HANDOFF.md)
 
-## Brand disclaimer
+## Deploy package
 
-This is a **private brand draft**. The “Nordex” name is deferred pending legal/brand decision. **Do not public-deploy** until brand and content are approved.
+From a clean commit tip:
 
-## Design & plan
+```bash
+git archive --format=zip --prefix=Nordex-Super-Energies/ -o Nordex-Super-Energies-Deployable.zip HEAD
+```
 
-- Spec: [docs/superpowers/specs/2026-07-11-nordex-enterprise-reengineering-design.md](docs/superpowers/specs/2026-07-11-nordex-enterprise-reengineering-design.md)
-- Plan: [docs/superpowers/plans/2026-07-11-nordex-enterprise-reengineering.md](docs/superpowers/plans/2026-07-11-nordex-enterprise-reengineering.md)
+Unzip → `npm install` → `npm run build` → host `.next` + start, or import the `pre-deploy` branch on Vercel.
+
+## Brand note
+
+Private brand draft. Confirm legal/naming and content before public production deploy.

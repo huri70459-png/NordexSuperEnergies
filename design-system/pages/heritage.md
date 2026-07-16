@@ -2,6 +2,10 @@
 
 Overrides `design-system/MASTER.md` for this route only.
 
+## Status
+
+**Done** on `pre-deploy` — polish only unless user requests changes. See root `PROJECT-HANDOFF.md`.
+
 ## Intent
 
 Institutional **museum collection**, not e-commerce. Object photography is the hero; gold is accent (rules/underlines), not fill.

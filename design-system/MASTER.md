@@ -64,17 +64,30 @@ Rules: animate `transform` / `opacity` only; respect `prefers-reduced-motion` (C
 5. Meaningful `alt` on collection images  
 6. Keyboard path for filters / nav  
 
-## Routes & redesign order
+## Routes & redesign status
 
 | Route | Theme | Status |
 |-------|--------|--------|
-| `/heritage` | `.theme-heritage` | Redesign + local assets; polish only |
-| `/` | Default | Redesign + local assets (dual-division gateway) |
-| `/industrial` | `.theme-industrial` | Redesign + local assets (portfolio) |
+| `/heritage` | `.theme-heritage` | **Done** — redesign + local assets; polish only |
+| `/` | Default | **Done** — dual-division gateway + audit polish |
+| `/industrial` | `.theme-industrial` | **Done** — portfolio redesign + local assets; polish only |
+
+**Ship snapshot:** git branch `pre-deploy` · handoff `PROJECT-HANDOFF.md`
 
 ## Implementation stack
 
 Next.js 16 · Tailwind v4 · shadcn/ui primitives · Framer Motion · `next/image`
+
+## Shared chrome utilities
+
+| Class | Use |
+|-------|-----|
+| `.nx-section` / `.nx-container` / `.nx-pad-x` | Section gutters |
+| `.nx-eyebrow` / `.nx-h2` / `.nx-lead` | Type roles |
+| `.nx-card` / `.nx-media` | Cards + image hover |
+| `.nx-btn` / `.nx-btn-solid` / `.nx-btn-outline` / `.nx-btn-on-dark*` | Enterprise CTAs (sharp, not soft pills) |
+| `.nx-touch` / `.nx-skip` | A11y hit area / skip link |
+| `SectionShell` | Prefer on long-form pages |
 
 ## Anti-patterns
 
@@ -83,3 +96,7 @@ Next.js 16 · Tailwind v4 · shadcn/ui primitives · Framer Motion · `next/imag
 - Unsplash on home/heritage/energy pages (use `public/images/heritage/`, `public/images/energy/`)  
 - Hover-only critical actions  
 - Crowded section stacking without rhythm tokens  
+- Soft `rounded-2xl` product-template cards on Home (use `--radius` / `.nx-card`)  
+- Placeholder footer/social `href="#"`  
+- Duplicate Home pillars + “spotlights” blocks  
+- Committing `Omnisync-Mutated-Folder/`, `*.zip`, `session/` agent noise
