@@ -13,7 +13,7 @@ Next.js 16 · Tailwind CSS v4 · Framer Motion · `next/image` · content module
 ## Branch
 
 Primary snapshot for deploy review: **`pre-deploy`**  
-https://github.com/huri70459-png/Nordex-Super-Energies2/tree/pre-deploy
+https://github.com/huri70459-png/NordexSuperEnergies/tree/pre-deploy
 
 ## Commands
 

@@ -9,9 +9,9 @@
 | Item | Value |
 |------|--------|
 | Branch | `pre-deploy` |
-| Commit | `367af43` — dual-division site + audit polish |
+| Commits | `367af43` product · `f56d066` docs/handoff |
 | Remote | `origin/pre-deploy` (up to date) |
-| Repo | https://github.com/huri70459-png/Nordex-Super-Energies2 |
+| Repo | https://github.com/huri70459-png/NordexSuperEnergies |
 
 ## Live routes
 
