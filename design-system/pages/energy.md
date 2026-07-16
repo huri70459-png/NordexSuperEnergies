@@ -15,20 +15,20 @@ Enterprise **energy portfolio** (resources → oil & gas → renewables → gene
 - Wrapper: `main.theme-industrial`
 - Surfaces: white/mist sections, navy hero + stats + CTA band
 - Display / stats: Space Grotesk (`font-energy`)
-- Accents: emerald eyebrows, cyan timeline labels, steel body
+- Accents: emerald eyebrows, steel body
 
 ## Section order
 
 1. Header (`overDark` over hero)  
-2. Hero — local poster + optional muted video loop + dual in-page CTAs  
+2. Hero — local poster + optional muted video loop + dual in-page CTAs (`#portfolio`, `#impact`)  
 3. Mission — 4 portfolio pillars  
 4. Portfolio (`#portfolio`) — 4 media cards  
 5. Systems (`#systems`) — plant / safety / infrastructure  
-6. Stats — navy signature band  
-7. Path / impact — still + timeline + Resource·Operate·Power rings  
-8. Featured programmes (`#projects`) — alternating large frames  
-9. CTA — Antiques primary, Home secondary  
-10. Footer  
+6. Stats (`#impact`) — navy signature band (`--section-y-sm`)  
+7. CTA — Antiques primary, Home secondary  
+8. Footer  
+
+**Phase 2 length trim:** timeline + featured programmes removed so post-hero stays ≤5 major beats.
 
 ## Catalog source
 
@@ -44,8 +44,7 @@ Enterprise **energy portfolio** (resources → oil & gas → renewables → gene
 | Cards | Image first; `h-full` equal cells; thin steel borders |
 | Portfolio grid | 1 → 2 sm → 4 lg; aspect `4/5` media |
 | Systems grid | 3 cols md; aspect `16/10` |
-| Featured | Alternate image/copy on lg; 16/10 → 5/4 |
-| Stats | Single deep navy band (page signature) |
+| Stats | Dense navy band (`--section-y-sm`); page signature |
 | Motion | Fade-up stagger ≤240ms; particles only when hero is still |
 
 ## Do not

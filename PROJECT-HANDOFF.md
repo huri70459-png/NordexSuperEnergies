@@ -42,9 +42,11 @@ Dual-division institutional site:
 
 ## Not done / optional next
 
+- [x] Phase 1 polish: CTAs, motion, type floor, hero offset, header radius  
+- [x] Phase 2 Energy length: drop timeline + featured; stats use `--section-y-sm`  
 - [ ] Visual QA polish from manual review notes  
-- [ ] Energy section-length trim if scroll feels long  
-- [ ] FadeUp duration tiers / mobile nav focus trap  
+- [ ] Phase 3: mobile nav focus trap / dead CSS purge  
+
 - [ ] Contact / careers / social real URLs when available  
 - [ ] Production deploy (Vercel or host of choice)  
 - [ ] Merge `pre-deploy` → `main` when approved  

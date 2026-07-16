@@ -3,13 +3,11 @@ import { Header } from "@/components/header"
 import { FooterSection } from "@/components/sections/footer-section"
 import { IndustrialHero } from "@/components/industrial/industrial-hero"
 import {
-  FeaturedProjectsSection,
   IndustrialCta,
   ManufacturingSection,
   MissionSection,
   RenewableSection,
   StatsSection,
-  SustainabilitySection,
 } from "@/components/industrial/industrial-sections"
 
 export const metadata: Metadata = {
@@ -23,12 +21,11 @@ export default function IndustrialPage() {
     <main id="main" className="theme-industrial nx-page bg-white text-[var(--ind-navy)] dark:bg-[var(--ind-navy)] dark:text-white">
       <Header variant="overDark" />
       <IndustrialHero />
+      {/* ponytail: 5 beats after hero — Mission · Portfolio · Systems · Stats · CTA (timeline + featured dropped Phase 2) */}
       <MissionSection />
       <RenewableSection />
       <ManufacturingSection />
       <StatsSection />
-      <SustainabilitySection />
-      <FeaturedProjectsSection />
       <IndustrialCta />
       <FooterSection />
     </main>

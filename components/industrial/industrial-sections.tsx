@@ -3,14 +3,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import {
-  featuredProjects,
-  impactStill,
   industrialCta,
   industrialStats,
   manufacturingCards,
   missionPillars,
   renewableGrid,
-  sustainabilityTimeline,
 } from "@/content/industrial"
 import { FadeUp } from "@/components/motion/fade-up"
 import { SectionHeader, SectionShell } from "@/components/shared/section-shell"
@@ -139,11 +136,12 @@ export function ManufacturingSection() {
   )
 }
 
+/** Dense signature band — section-y-sm, not full story padding. */
 export function StatsSection() {
   return (
     <section
       id="impact"
-      className="bg-[var(--ind-navy)] px-[max(var(--section-x),var(--safe-left))] pr-[max(var(--section-x),var(--safe-right))] py-12 sm:py-16 md:py-20"
+      className="bg-[var(--ind-navy)] px-[max(var(--section-x),var(--safe-left))] pr-[max(var(--section-x),var(--safe-right))] py-[var(--section-y-sm)]"
     >
       <div className="nx-container">
         <div className="grid grid-cols-2 border-t border-white/10 md:grid-cols-4">
@@ -151,7 +149,7 @@ export function StatsSection() {
             <FadeUp key={stat.label} delayMs={i * 55} as="div">
               <div
                 className={cn(
-                  "border-white/10 p-5 text-center sm:p-6 md:p-10",
+                  "border-white/10 p-5 text-center sm:p-6 md:p-8",
                   "border-b border-r",
                   i % 2 === 1 && "border-r-0",
                   i >= 2 && "border-b-0",
@@ -171,167 +169,6 @@ export function StatsSection() {
         </div>
       </div>
     </section>
-  )
-}
-
-export function SustainabilitySection() {
-  return (
-    <SectionShell id="sustainability">
-      <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-        <FadeUp variant="scale">
-          <div className="nx-media relative aspect-[16/11] min-h-[12rem] overflow-hidden rounded-[var(--radius)]">
-            <Image
-              src={impactStill.image}
-              alt={impactStill.imageAlt}
-              fill
-              loading="lazy"
-              quality={90}
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
-          </div>
-        </FadeUp>
-
-        <div>
-          <FadeUp>
-            <p className="nx-eyebrow mb-3 text-[var(--ind-emerald)]">Path to leadership</p>
-            <h2 className="nx-h2 text-[var(--ind-navy)] dark:text-white">
-              From resource base to reliable power
-            </h2>
-            <p className="nx-lead mt-4 text-[var(--ind-steel)]">
-              A clear arc: secure resources, operate complex fields, grow clean capacity, and remain a
-              trusted partner for critical energy infrastructure.
-            </p>
-          </FadeUp>
-
-          <ol className="mt-10 space-y-0 border-l border-[var(--ind-emerald)]/40 pl-6">
-            {sustainabilityTimeline.map((step, i) => (
-              <FadeUp key={step.year} delayMs={i * 70} as="li">
-                <div className="relative pb-10 last:pb-0">
-                  <span className="absolute -left-[1.9rem] top-1.5 h-2.5 w-2.5 rounded-full bg-[var(--ind-emerald)] ring-4 ring-[var(--ind-emerald)]/20" />
-                  <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--ind-blue)]">
-                    {step.year}
-                  </p>
-                  <h3 className="mt-1 text-lg font-semibold tracking-tight text-[var(--ind-navy)] dark:text-white">
-                    {step.title}
-                  </h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-[var(--ind-steel)]">
-                    {step.description}
-                  </p>
-                </div>
-              </FadeUp>
-            ))}
-          </ol>
-        </div>
-      </div>
-
-      <FadeUp delayMs={100}>
-        <div className="mt-12 grid gap-6 rounded-[var(--radius)] border border-[var(--ind-steel)]/15 bg-[var(--ind-mist)] p-5 sm:mt-16 sm:grid-cols-3 sm:gap-4 sm:p-8 md:gap-6 md:p-12 dark:bg-[var(--ind-navy)]/40">
-          {[
-            {
-              title: "Resource",
-              desc: "Mining and extractive systems built for multi-year programmes.",
-            },
-            {
-              title: "Operate",
-              desc: "Offshore and field assets run with logistics and safety discipline.",
-            },
-            {
-              title: "Power",
-              desc: "Renewables and generation infrastructure for dependable supply.",
-            },
-          ].map((ring) => (
-            <div
-              key={ring.title}
-              className="flex items-center gap-4 text-left sm:flex-col sm:text-center"
-            >
-              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-[var(--ind-emerald)]/50 bg-[var(--ind-emerald)]/10 sm:mx-auto sm:mb-4 sm:h-24 sm:w-24">
-                <span className="nx-meta font-semibold tracking-wider text-[var(--ind-emerald)] sm:text-sm">
-                  {ring.title}
-                </span>
-              </div>
-              <p className="text-sm leading-relaxed text-[var(--ind-steel)]">{ring.desc}</p>
-            </div>
-          ))}
-        </div>
-      </FadeUp>
-    </SectionShell>
-  )
-}
-
-export function FeaturedProjectsSection() {
-  return (
-    <SectionShell id="projects" className="border-t border-[var(--ind-steel)]/12">
-      <FadeUp>
-        <SectionHeader
-          eyebrow="Featured programmes"
-          title="Large frames, precise narratives"
-          description="Selected programmes across resources and offshore energy systems."
-          titleClassName="text-[var(--ind-navy)] dark:text-white"
-          eyebrowClassName="text-[var(--ind-blue)]"
-          descriptionClassName="text-[var(--ind-steel)]"
-        />
-      </FadeUp>
-
-      <div className="space-y-16 sm:space-y-20 md:space-y-28">
-        {featuredProjects.map((project, i) => {
-          const reverse = i % 2 === 1
-          return (
-            <FadeUp key={project.id} as="article">
-              <div
-                className={cn(
-                  "grid items-center gap-8 lg:grid-cols-2 lg:gap-14",
-                  reverse && "lg:[&>*:first-child]:order-2",
-                )}
-              >
-                <div className="nx-media relative aspect-[16/10] overflow-hidden rounded-[var(--radius)] lg:aspect-[5/4]">
-                  <Image
-                    src={project.image}
-                    alt={project.imageAlt}
-                    fill
-                    loading="lazy"
-                    quality={90}
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="max-w-lg">
-                  <p className="nx-eyebrow text-[var(--ind-emerald)]">
-                    {project.category} · {project.year}
-                  </p>
-                  <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--ind-navy)] md:text-4xl dark:text-white">
-                    {project.title}
-                  </h3>
-                  <p className="mt-4 text-base leading-relaxed text-[var(--ind-steel)] md:leading-[1.7]">
-                    {project.summary}
-                  </p>
-                  <dl className="mt-8 flex flex-wrap gap-8">
-                    <div>
-                      <dt className="nx-meta tracking-[0.2em] text-[var(--ind-steel)]">
-                        Location
-                      </dt>
-                      <dd className="mt-1 text-sm font-medium text-[var(--ind-navy)] dark:text-white">
-                        {project.location}
-                      </dd>
-                    </div>
-                    {project.metric && (
-                      <div>
-                        <dt className="nx-meta tracking-[0.2em] text-[var(--ind-steel)]">
-                          Scale
-                        </dt>
-                        <dd className="mt-1 text-sm font-medium text-[var(--ind-navy)] dark:text-white">
-                          {project.metric}
-                        </dd>
-                      </div>
-                    )}
-                  </dl>
-                </div>
-              </div>
-            </FadeUp>
-          )
-        })}
-      </div>
-    </SectionShell>
   )
 }
 
