@@ -1,9 +1,8 @@
 # Project handoff — Nordex Super Energies
 
 **Updated:** 2026-07-16  
-**Branch:** `pre-deploy` @ `8ba03db` (docs tip; product base `367af43`)  
+**Branch:** `pre-deploy` (product base `367af43`; docs commits after — use `git log -1`)  
 **Remote:** https://github.com/huri70459-png/NordexSuperEnergies/tree/pre-deploy  
-(legacy clone URL may still say `Nordex-Super-Energies2` — GitHub reports repo moved to `NordexSuperEnergies`)  
 **Deploy zip:** `Nordex-Super-Energies-Deployable.zip` (~117 MB, gitignored; recreate with `git archive`)
 
 ---
