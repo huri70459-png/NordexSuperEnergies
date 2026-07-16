@@ -37,7 +37,7 @@ export function FooterSection() {
           </div>
 
           <div>
-            <h4 className="mb-3 text-sm font-medium text-foreground sm:mb-4">Explore</h4>
+            <p className="mb-3 text-sm font-medium text-foreground sm:mb-4">Explore</p>
             <ul className="space-y-0.5">
               {footerLinks.explore.map((link) => (
                 <li key={link.label}>
@@ -53,7 +53,7 @@ export function FooterSection() {
           </div>
 
           <div>
-            <h4 className="mb-3 text-sm font-medium text-foreground sm:mb-4">About</h4>
+            <p className="mb-3 text-sm font-medium text-foreground sm:mb-4">About</p>
             <ul className="space-y-0.5">
               {footerLinks.about.map((link) => (
                 <li key={link.label}>

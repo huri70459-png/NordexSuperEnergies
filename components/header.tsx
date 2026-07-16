@@ -108,16 +108,16 @@ export function Header({ variant = "overDark" }: HeaderProps) {
     }
   }, [isMenuOpen, closeMenu, menuId])
 
+  // Desktop overDark: white until scroll. Mobile always glass (bright hero sky).
   const solid = variant === "solid" || isScrolled || isMenuOpen
 
   return (
     <>
-      {/* Backdrop outside header stacking context so it always covers the page */}
+      {/* Scrim under sheet; div so only the X is named "Close menu" (M-03/M-14) */}
       {isMenuOpen ? (
-        <button
-          type="button"
+        <div
           className="fixed inset-0 z-40 bg-black/45 md:hidden"
-          aria-label="Close menu"
+          aria-hidden
           onClick={closeMenu}
         />
       ) : null}
@@ -125,7 +125,8 @@ export function Header({ variant = "overDark" }: HeaderProps) {
       <header
         ref={headerRef}
         className={cn(
-          "fixed z-50 w-full transition-[background,box-shadow,color] duration-300 ease-[var(--ease-out-soft)]",
+          // pointer-events-none: empty fixed chrome must not block backdrop dismiss
+          "pointer-events-none fixed z-50 w-full transition-[background,box-shadow,color] duration-300 ease-[var(--ease-out-soft)]",
           "left-0 right-0 top-0",
           "px-[max(0.75rem,var(--safe-left))] pr-[max(0.75rem,var(--safe-right))]",
           "pt-[max(0.5rem,var(--safe-top))]",
@@ -134,10 +135,11 @@ export function Header({ variant = "overDark" }: HeaderProps) {
       >
         <div
           className={cn(
-            "overflow-hidden transition-all duration-300 ease-[var(--ease-out-soft)]",
+            "pointer-events-auto overflow-hidden transition-all duration-300 ease-[var(--ease-out-soft)]",
+            // M-01: max-md always solid glass (first paint, no FOUC) so white chrome never sits on bright sky
             solid
               ? "rounded-sm border border-border/60 bg-background/95 shadow-sm backdrop-blur-md"
-              : "rounded-sm border border-transparent bg-transparent",
+              : "rounded-sm border border-transparent bg-transparent max-md:border-border/60 max-md:bg-background/95 max-md:shadow-sm max-md:backdrop-blur-md",
             isMenuOpen && "rounded-sm",
           )}
         >
@@ -146,7 +148,7 @@ export function Header({ variant = "overDark" }: HeaderProps) {
               href="/"
               className={cn(
                 "inline-flex min-h-11 max-w-[9.5rem] items-center text-sm font-medium leading-tight tracking-tight transition-colors duration-300 sm:max-w-none sm:text-base",
-                solid ? "text-foreground" : "text-white",
+                solid ? "text-foreground" : "text-white max-md:text-foreground",
               )}
             >
               <span className="sm:hidden">{BRAND.shortName}</span>
@@ -193,16 +195,14 @@ export function Header({ variant = "overDark" }: HeaderProps) {
               </Link>
             </div>
 
-            <div className="flex items-center gap-0.5 md:hidden">
-              <ThemeToggle solid={solid} />
+            <div className="flex items-center gap-2 md:hidden">
+              {/* Mobile bar always glass (M-01) → ink chrome */}
+              <ThemeToggle solid />
               <button
                 ref={menuButtonRef}
                 type="button"
                 onClick={() => setIsMenuOpen((o) => !o)}
-                className={cn(
-                  "inline-flex h-11 w-11 items-center justify-center rounded-sm transition-colors",
-                  solid ? "text-foreground" : "text-white",
-                )}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-sm text-foreground transition-colors"
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isMenuOpen}
                 aria-controls={menuId}
@@ -223,32 +223,35 @@ export function Header({ variant = "overDark" }: HeaderProps) {
             {...(!isMenuOpen ? { inert: true } : {})}
           >
             <div className="overflow-hidden">
-              <nav
-                className="max-h-[min(72dvh,30rem)] space-y-1 overflow-y-auto overscroll-contain border-t border-border px-3 py-4 pb-[max(1rem,var(--safe-bottom))]"
-                aria-label="Mobile"
-              >
-                {navLinks.map((link) => {
-                  const active =
-                    link.href === "/"
-                      ? pathname === "/"
-                      : pathname === link.href || pathname.startsWith(`${link.href}/`)
-                  return (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={cn(
-                        "flex min-h-12 items-center rounded-sm px-3 text-base font-medium transition-colors",
-                        active
-                          ? "bg-secondary text-foreground"
-                          : "text-foreground/90 active:bg-secondary/70",
-                      )}
-                      onClick={closeMenu}
-                    >
-                      {link.label}
-                    </Link>
-                  )
-                })}
-                <div className="mt-2 grid gap-2 pt-2">
+              {/* M-02: remaining viewport under bar; sticky CTAs so landscape never clips them */}
+              <div className="flex max-h-[min(calc(100dvh-3.25rem-var(--safe-top)-var(--safe-bottom)),30rem)] flex-col border-t border-border">
+                <nav
+                  className="min-h-0 flex-1 space-y-1 overflow-y-auto overscroll-contain px-3 py-3"
+                  aria-label="Mobile"
+                >
+                  {navLinks.map((link) => {
+                    const active =
+                      link.href === "/"
+                        ? pathname === "/"
+                        : pathname === link.href || pathname.startsWith(`${link.href}/`)
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={cn(
+                          "flex min-h-12 items-center rounded-sm px-3 text-base font-medium transition-colors",
+                          active
+                            ? "bg-secondary text-foreground"
+                            : "text-foreground/90 active:bg-secondary/70",
+                        )}
+                        onClick={closeMenu}
+                      >
+                        {link.label}
+                      </Link>
+                    )
+                  })}
+                </nav>
+                <div className="grid shrink-0 gap-2 border-t border-border/60 bg-background/95 px-3 py-3 pb-[max(0.75rem,var(--safe-bottom))]">
                   <Link
                     href="/industrial"
                     className="nx-btn nx-btn-solid w-full"
@@ -264,7 +267,7 @@ export function Header({ variant = "overDark" }: HeaderProps) {
                     Antiques collection
                   </Link>
                 </div>
-              </nav>
+              </div>
             </div>
           </div>
         </div>

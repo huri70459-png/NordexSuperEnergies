@@ -15,14 +15,16 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main id="main" className="nx-page bg-background">
+    <>
       <Header />
-      <HeroSection />
-      <PhilosophySection />
-      <GallerySection />
-      <CollectionSection />
-      <AboutSection />
-      <FooterSection />
-    </main>
+      <main id="main" className="nx-page bg-background">
+        <HeroSection />
+        <PhilosophySection />
+        <GallerySection />
+        <CollectionSection />
+        <AboutSection />
+        <FooterSection />
+      </main>
+    </>
   )
 }

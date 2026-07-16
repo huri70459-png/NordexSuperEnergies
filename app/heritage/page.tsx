@@ -14,13 +14,18 @@ export const metadata: Metadata = {
 
 export default function HeritagePage() {
   return (
-    <main id="main" className="theme-heritage nx-page bg-[var(--heritage-ivory)] text-[var(--heritage-charcoal)]">
+    <div className="theme-heritage">
       <Header variant="overDark" />
-      <HeritageHero />
-      <HeritageGallerySection />
-      <CategoryStorySections />
-      <HeritageCta />
-      <FooterSection />
-    </main>
+      <main
+        id="main"
+        className="nx-page bg-[var(--heritage-ivory)] text-[var(--heritage-charcoal)]"
+      >
+        <HeritageHero />
+        <HeritageGallerySection />
+        <CategoryStorySections />
+        <HeritageCta />
+        <FooterSection />
+      </main>
+    </div>
   )
 }
