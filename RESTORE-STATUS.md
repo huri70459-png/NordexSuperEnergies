@@ -2,22 +2,22 @@
 
 **Last updated:** 2026-07-16  
 **Canonical handoff:** [`PROJECT-HANDOFF.md`](PROJECT-HANDOFF.md)  
-**Agent session:** `session/20260716_152009/`
+**Agent session:** `session/20260716_162727/`
 
 ## Git
 
 | Item | Value |
 |------|--------|
-| Branch | `pre-deploy` |
-| Commits | `367af43` product · `f56d066` docs/handoff |
-| Remote | `origin/pre-deploy` (up to date) |
+| Primary branch | `main` @ `f1ad5ae` (PR #1 ship merge) |
+| Staging | `pre-deploy` @ `3221d8e` (merged into `main`) |
+| Remote | `origin/main` + `origin/pre-deploy` |
 | Repo | https://github.com/huri70459-png/NordexSuperEnergies |
 
 ## Live routes
 
 | Page | Route | Role | Status |
 | --- | --- | --- | --- |
-| Home | `/` | Dual-division gateway | Redesigned + audit polish |
+| Home | `/` | Dual-division gateway | Redesigned + audit + polish |
 | Antiques | `/heritage` | Museum collection | Redesigned; polish only |
 | Energy | `/industrial` | Full energy portfolio | Redesigned; polish only |
 
@@ -26,6 +26,11 @@
 - Tagline: **Energy Portfolio · Antiques**
 - Content: `content/brand.ts`, `content/home.ts`, `content/heritage.ts`, `content/industrial.ts`
 - Media: `public/images/energy/*`, `public/images/heritage/*` only on live pages
+
+## Ship gate
+
+Local Phase 4: typecheck + production build + route smoke + media path check — **green**.  
+Vercel: project may be linked as `nordex-super-energies`; **remote deploy not verified** in handoff. Details in `PROJECT-HANDOFF.md`.
 
 ## Historical restore (2026-07-12)
 

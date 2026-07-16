@@ -1,0 +1,20 @@
+# Keep CLI/git uploads under plan limits; mirror deploy-relevant ignores
+node_modules
+.next
+out
+build
+.grok
+.superpowers
+.qodo
+.codebase-memory
+session
+Omnisync-Mutated-Folder
+archive
+docs-audit
+somedesign-assets
+*.zip
+*.code-workspace
+Sessionchat*.md
+Restore*.md
+TokenRAY.md
+pnpm-lock.yaml

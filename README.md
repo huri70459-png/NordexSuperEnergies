@@ -12,8 +12,12 @@ Next.js 16 · Tailwind CSS v4 · Framer Motion · `next/image` · content module
 
 ## Branch
 
-Primary snapshot for deploy review: **`pre-deploy`**  
-https://github.com/huri70459-png/NordexSuperEnergies/tree/pre-deploy
+| Branch | Role |
+|--------|------|
+| **`main`** | Shipped product (PR #1 merge) — default for deploy / new work |
+| `pre-deploy` | Staging snapshot used for review; merged into `main` |
+
+Remote: https://github.com/huri70459-png/NordexSuperEnergies
 
 ## Commands
 
@@ -39,9 +43,11 @@ From a clean commit tip:
 git archive --format=zip --prefix=Nordex-Super-Energies/ -o Nordex-Super-Energies-Deployable.zip HEAD
 ```
 
-Unzip → `npm install` → `npm run build` → host `.next` + start, or import the `pre-deploy` branch on Vercel.
+Unzip → `npm install` → `npm run build` → host `.next` + start, or import the repo on Vercel (branch **`main`**).
 
-### Vercel preview (recommended)
+### Vercel
+
+Local project link (if present): `.vercel/project.json` → **nordex-super-energies**.
 
 ```bash
 # one-time: browser login
@@ -50,7 +56,7 @@ npx vercel login
 npx vercel --yes
 ```
 
-Or: Vercel dashboard → **Add New Project** → import `huri70459-png/NordexSuperEnergies` → branch **`pre-deploy`**.
+Or: Vercel dashboard → import `huri70459-png/NordexSuperEnergies` → branch **`main`**.
 
 Ship gate (local) last run: `tsc` + `next build` + prod route smoke green. See `PROJECT-HANDOFF.md`.
 

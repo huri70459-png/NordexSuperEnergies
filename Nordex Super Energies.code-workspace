@@ -1,8 +1,44 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "name": "Nordex Super Energies",
+      "path": ".",
+    },
+    {
+      "name": "evasion-e-commerce-template",
+      "path": "C:/Users/kafsh/Downloads/omnisync-app/evasion-e-commerce-template",
+    },
+    {
+      "name": "grok-creative-studio",
+      "path": "C:/Users/kafsh/Downloads/omnisync-app/grok-creative-studio",
+    },
+    {
+      "name": "design-assets",
+      "path": "C:/Users/kafsh/Downloads/omnisync-app/design-assets",
+    },
+    {
+      "name": "fluid-particles-background",
+      "path": "C:/Users/kafsh/Downloads/omnisync-app/fluid-particles-background",
+    },
+    {
+      "name": "interactive-portfolio-gallery-with-hover-video-cards",
+      "path": "C:/Users/kafsh/Downloads/omnisync-app/interactive-portfolio-gallery-with-hover-video-cards",
+    },
+    {
+      "name": "viscera-modern-portfolio-template",
+      "path": "C:/Users/kafsh/Downloads/omnisync-app/viscera-modern-portfolio-template",
+    },
+    {
+      "name": "year-wrapped-template-multi-style-responsive-dashboard",
+      "path": "C:/Users/kafsh/Downloads/omnisync-app/year-wrapped-template-multi-style-responsive-dashboard",
+    },
+    {
+      "name": "ui-ux-pro-max-skill-main",
+      "path": "C:/Users/kafsh/Downloads/ui-ux-pro-max-skill-main",
+    },
+  ],
+  "settings": {
+    "claudeCode.useTerminal": true,
+  },
 }
+/

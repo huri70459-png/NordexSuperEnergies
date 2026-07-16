@@ -72,7 +72,7 @@ Rules: animate `transform` / `opacity` only; respect `prefers-reduced-motion` (C
 | `/` | Default | **Done** — dual-division gateway + audit polish |
 | `/industrial` | `.theme-industrial` | **Done** — portfolio redesign + local assets; polish only |
 
-**Ship snapshot:** git branch `pre-deploy` · handoff `PROJECT-HANDOFF.md`
+**Ship snapshot:** git branch `main` (PR #1; `pre-deploy` merged) · handoff `PROJECT-HANDOFF.md`
 
 ## Implementation stack
 

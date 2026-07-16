@@ -15,7 +15,7 @@ Institutional **dual-division gateway** (Energy + Antiques). Not e-commerce, not
 
 ## Status
 
-**Done** on `pre-deploy` (audit polish included). See root `PROJECT-HANDOFF.md`.
+**Done** on `main` (audit + Phases 1–4 polish; `pre-deploy` merged via PR #1). See root `PROJECT-HANDOFF.md`.
 
 ## Section order
 

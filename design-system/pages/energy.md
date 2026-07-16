@@ -4,7 +4,7 @@ Overrides `design-system/MASTER.md` for this route only. Nav label: **Energy**.
 
 ## Status
 
-**Done** on `pre-deploy` — polish only unless user requests changes. See root `PROJECT-HANDOFF.md`.
+**Done** on `main` — polish only unless user requests changes. See root `PROJECT-HANDOFF.md`.
 
 ## Intent
 
