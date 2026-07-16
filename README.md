@@ -41,6 +41,19 @@ git archive --format=zip --prefix=Nordex-Super-Energies/ -o Nordex-Super-Energie
 
 Unzip → `npm install` → `npm run build` → host `.next` + start, or import the `pre-deploy` branch on Vercel.
 
+### Vercel preview (recommended)
+
+```bash
+# one-time: browser login
+npx vercel login
+# from repo root, preview (not production)
+npx vercel --yes
+```
+
+Or: Vercel dashboard → **Add New Project** → import `huri70459-png/NordexSuperEnergies` → branch **`pre-deploy`**.
+
+Ship gate (local) last run: `tsc` + `next build` + prod route smoke green. See `PROJECT-HANDOFF.md`.
+
 ## Brand note
 
 Private brand draft. Confirm legal/naming and content before public production deploy.

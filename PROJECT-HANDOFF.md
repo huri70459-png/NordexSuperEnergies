@@ -1,7 +1,7 @@
 # Project handoff — Nordex Super Energies
 
 **Updated:** 2026-07-16  
-**Branch:** `pre-deploy` (product base `367af43`; docs commits after — use `git log -1`)  
+**Branch:** `pre-deploy` (tip: `git log -1`)  
 **Remote:** https://github.com/huri70459-png/NordexSuperEnergies/tree/pre-deploy  
 **Deploy zip:** `Nordex-Super-Energies-Deployable.zip` (~117 MB, gitignored; recreate with `git archive`)
 
@@ -39,19 +39,32 @@ Dual-division institutional site:
 - [x] Audit pass: dead footer links removed, brand/tagline aligned, fake stats fixed, Unsplash dead sections deleted, Home de-duped (pillars only), sharp radius + `.nx-btn*`, skip link  
 - [x] `pre-deploy` branch committed and pushed  
 - [x] Deploy zip generated from `git archive` (local file; not in git)
-
-## Not done / optional next
-
 - [x] Phase 1 polish: CTAs, motion, type floor, hero offset, header radius  
 - [x] Phase 2 Energy length: drop timeline + featured; stats use `--section-y-sm`  
 - [x] Phase 3 a11y/cleanup: mobile focus trap, heritage tab scrollIntoView, dead CSS purge  
-- [ ] Visual QA polish from manual review notes  
+- [x] **Phase 4 ship gate (local):** `tsc --noEmit` OK · `npm run build` OK · prod smoke `/` `/heritage` `/industrial` 200 · 404 OK · 54/54 content media paths exist · deploy zip refreshed (~116.6 MB)
 
+## Not done / optional next
 
+- [ ] **Vercel preview** — blocked until CLI login (`npx vercel login`) or GitHub import of `pre-deploy` (no Nordex project linked yet; team MCP sees other projects only)  
+- [ ] Eyeball visual QA in browser (phone + desktop × 3 routes; light/dark once) — automated HTML smoke passed  
 - [ ] Contact / careers / social real URLs when available  
-- [ ] Production deploy (Vercel or host of choice)  
-- [ ] Merge `pre-deploy` → `main` when approved  
+- [ ] Production deploy (prefer **preview first**; public brand decision still advisory before go-live)  
+- [ ] Merge `pre-deploy` → `main` when you approve  
 - [ ] Prune unused product bottle images under `public/images/*` (legacy template leftovers)
+
+### Phase 4 smoke log (2026-07-16)
+
+| Check | Result |
+|-------|--------|
+| `npx tsc --noEmit` | exit 0 |
+| `npm run build` (Next 16.0.10) | exit 0; static `/`, `/heritage`, `/industrial` |
+| Prod `next start` smoke | Home / Antiques / Energy **200**; unknown route **404** |
+| Content markers | Home dual CTAs present; Energy has `#portfolio`, no timeline; Heritage collection present |
+| Content media refs | **54/54** files on disk |
+| Key static assets | hero mp4, key JPG/WEBP **200** |
+| Deploy zip | recreated from `HEAD` via `git archive` |
+| Vercel remote | **not deployed** — no local `vercel` credentials / no project |
 
 ---
 
