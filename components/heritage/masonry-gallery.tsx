@@ -29,7 +29,6 @@ export function MasonryGallery({ filterCategory = null }: MasonryGalleryProps) {
     <div
       id={GALLERY_PANEL_ID}
       role="tabpanel"
-      aria-live="polite"
       className="heritage-masonry columns-1 sm:columns-2 lg:columns-3"
     >
       {items.map((item, index) => (

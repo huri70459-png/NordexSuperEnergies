@@ -18,16 +18,21 @@ export const metadata: Metadata = {
 
 export default function IndustrialPage() {
   return (
-    <main id="main" className="theme-industrial nx-page bg-white text-[var(--ind-navy)] dark:bg-[var(--ind-navy)] dark:text-white">
+    <div className="theme-industrial">
       <Header variant="overDark" />
-      <IndustrialHero />
-      {/* ponytail: 5 beats after hero — Mission · Portfolio · Systems · Stats · CTA (timeline + featured dropped Phase 2) */}
-      <MissionSection />
-      <RenewableSection />
-      <ManufacturingSection />
-      <StatsSection />
-      <IndustrialCta />
-      <FooterSection />
-    </main>
+      <main
+        id="main"
+        className="nx-page bg-white text-[var(--ind-navy)] dark:bg-[var(--ind-navy)] dark:text-white"
+      >
+        <IndustrialHero />
+        {/* ponytail: 5 beats after hero — Mission · Portfolio · Systems · Stats · CTA (timeline + featured dropped Phase 2) */}
+        <MissionSection />
+        <RenewableSection />
+        <ManufacturingSection />
+        <StatsSection />
+        <IndustrialCta />
+        <FooterSection />
+      </main>
+    </div>
   )
 }

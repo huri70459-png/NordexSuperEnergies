@@ -42,7 +42,7 @@ function MobileGallery() {
     <section id="gallery" className="relative border-t border-border/60 bg-background py-10 sm:py-14">
       <GalleryHeading />
       <div className="nx-snap-x pb-2">
-        {images.map((image, index) => (
+        {images.map((image) => (
           <div
             key={image.src}
             className="relative h-[58svh] w-[78vw] max-w-sm shrink-0 overflow-hidden rounded-[var(--radius)] bg-muted"
@@ -53,7 +53,6 @@ function MobileGallery() {
               fill
               sizes="78vw"
               className="object-cover"
-              priority={index < 2}
             />
           </div>
         ))}

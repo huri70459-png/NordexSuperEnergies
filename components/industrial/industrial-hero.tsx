@@ -9,14 +9,31 @@ import { EnergyParticles } from "@/components/industrial/energy-particles"
 import { ScrollHint } from "@/components/shared/scroll-hint"
 import { easeOutExpo, transitions } from "@/lib/motion"
 
+type NetInfo = { saveData?: boolean; effectiveType?: string }
+
+function allowHeroVideo(): boolean {
+  if (typeof navigator === "undefined") return true
+  const conn = (navigator as Navigator & { connection?: NetInfo }).connection
+  if (!conn) return true
+  if (conn.saveData) return false
+  // ponytail: skip autoplay on very slow networks; poster stays
+  if (conn.effectiveType === "slow-2g" || conn.effectiveType === "2g") return false
+  return true
+}
+
 export function IndustrialHero() {
   const reduce = useReducedMotion()
   const videoRef = useRef<HTMLVideoElement>(null)
   const [videoReady, setVideoReady] = useState(false)
+  const [allowVideo, setAllowVideo] = useState(true)
+
+  useEffect(() => {
+    setAllowVideo(allowHeroVideo())
+  }, [])
 
   useEffect(() => {
     const el = videoRef.current
-    if (!el || reduce) return
+    if (!el || reduce || !allowVideo) return
 
     const tryPlay = () => {
       el.muted = true
@@ -26,9 +43,9 @@ export function IndustrialHero() {
     // Defer play slightly so LCP can paint the poster first
     const id = window.setTimeout(tryPlay, 120)
     return () => window.clearTimeout(id)
-  }, [reduce])
+  }, [reduce, allowVideo])
 
-  const showVideo = Boolean(industrialHero.video) && !reduce
+  const showVideo = Boolean(industrialHero.video) && !reduce && allowVideo
 
   return (
     <section className="nx-hero-min nx-vh relative flex min-h-[min(100svh,560px)] overflow-hidden bg-[var(--ind-navy-deep,var(--ind-navy))]">
