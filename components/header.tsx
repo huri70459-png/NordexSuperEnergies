@@ -143,11 +143,12 @@ export function Header({ variant = "overDark" }: HeaderProps) {
             isMenuOpen && "rounded-sm",
           )}
         >
-          <div className="flex h-12 items-center justify-between gap-2 px-2 pl-3.5 sm:h-auto sm:gap-3 sm:px-2 sm:py-2 sm:pl-5">
+          <div className="flex min-h-14 items-center justify-between gap-2 px-2 pl-3.5 sm:h-auto sm:gap-3 sm:px-2 sm:py-3 sm:pl-5">
             <Link
               href="/"
               className={cn(
-                "inline-flex min-h-11 max-w-[9.5rem] items-center text-sm font-medium leading-tight tracking-tight transition-colors duration-300 sm:max-w-none sm:text-base",
+                // Site name — dominant header wordmark (Google Sans); above nav/body chrome
+                "font-brand inline-flex min-h-11 max-w-[18rem] shrink-0 items-center whitespace-nowrap text-[clamp(1.5rem,3.5vw,2.75rem)] font-bold leading-none tracking-tight transition-colors duration-300 sm:max-w-none",
                 solid ? "text-foreground" : "text-white max-md:text-foreground",
               )}
             >

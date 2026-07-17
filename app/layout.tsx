@@ -1,5 +1,6 @@
 import React from "react"
 import type { Metadata, Viewport } from "next"
+import localFont from "next/font/local"
 import { Inter, Space_Grotesk, Cormorant_Garamond } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -21,6 +22,34 @@ const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-cormorant",
+  display: "swap",
+})
+
+/** Brand lockup face — files in content/Google_Sans (OFL). */
+const googleSans = localFont({
+  src: [
+    {
+      path: "../content/Google_Sans/static/GoogleSans-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../content/Google_Sans/static/GoogleSans-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../content/Google_Sans/static/GoogleSans-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../content/Google_Sans/static/GoogleSans-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-google-sans",
   display: "swap",
 })
 
@@ -80,7 +109,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${cormorant.variable} font-sans antialiased`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${cormorant.variable} ${googleSans.variable} font-sans antialiased`}
       >
         <a href="#main" className="nx-skip">
           Skip to main content

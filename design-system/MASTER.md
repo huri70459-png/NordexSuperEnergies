@@ -23,6 +23,7 @@ Global source of truth for UI redesign. Page files under `design-system/pages/` 
 | Body / UI | Inter (`--font-inter` / `--font-sans`) |
 | Energy / industrial UI | Space Grotesk (`--font-energy`) |
 | Display / heritage titles | Cormorant Garamond (`--font-display`) |
+| Brand lockup (site name) | Google Sans (`--font-brand` / `font-brand`) — local OFL in `content/Google_Sans` |
 
 Do not introduce new families without an explicit brand change.
 
