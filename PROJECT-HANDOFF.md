@@ -1,7 +1,7 @@
 # Project handoff — Nordex Super Energies
 
 **Updated:** 2026-07-23  
-**Production branch:** `main` (tip: `git log -1` — currently **`714d392`**)  
+**Production branch:** `main` (tip: `git log -1` — currently **`d73a40f`** docs; product offices **`714d392`**)  
 **Remote:** https://github.com/huri70459-png/NordexSuperEnergies  
 **Live site:** https://nordexsuperenergies.com (apex canonical; www → apex 308)  
 **Vercel:** project `nordex-super-energies` · team `raybeam-s-projects` · `prj_SkW1j6YezPiTDMgOiXTj1MEhgSmm`  
