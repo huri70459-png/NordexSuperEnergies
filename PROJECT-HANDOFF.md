@@ -22,16 +22,12 @@ Dual-division institutional site + contact:
 
 **Brand lockup:** Energy Portfolio · Antiques (`content/brand.ts`)
 
-**Company address** (footer all pages + bottom of `/contact`):
+**Offices** (footer all pages + bottom of `/contact`) — `BRAND.offices` in `content/brand.ts`:
 
-```
-Nordex SE
-Langenhorner Chaussee 600
-22418 Hamburg
-Germany
-```
-
-Source: `BRAND.companyAddress` in `content/brand.ts`.
+| Office | Address |
+|--------|---------|
+| Head office | Nordex SE · Langenhorner Chaussee 600 · 22418 Hamburg · Germany |
+| Branch office | Nordex Super Energies · Centura Square 224, 2nd floor · Road no. 27, opp. Lanxess House · S.G. Brave Road, Wagle Estate · Thane, Maharashtra 400604 · India |
 
 ---
 
@@ -122,7 +118,7 @@ components/
   motion/fade-up.tsx
   shared/*              SectionShell, theme toggle, scroll hint
 content/
-  brand.ts              BRAND, SITE_NAV, companyAddress
+  brand.ts              BRAND, SITE_NAV, offices
   contact.ts            form copy, emails
   home.ts, heritage.ts, industrial.ts
 public/images/

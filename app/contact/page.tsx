@@ -7,8 +7,6 @@ import { EmailCards } from "@/components/contact/email-cards"
 import { CONTACT } from "@/content/contact"
 import { BRAND } from "@/content/brand"
 
-const { companyAddress } = BRAND
-
 export const metadata: Metadata = {
   title: "Contact",
   description: `Contact ${BRAND.name} — reach Arshad and Noor, or send a short message from the form.`,
@@ -38,14 +36,26 @@ export default function ContactPage() {
             <h2 className="text-lg font-medium text-foreground">
               {CONTACT.addressSection.title}
             </h2>
-            <address className="mt-4 not-italic text-sm leading-relaxed text-muted-foreground sm:text-base">
-              <span className="block font-medium text-foreground">
-                {companyAddress.legalName}
-              </span>
-              <span className="mt-1 block">{companyAddress.street}</span>
-              <span className="block">{companyAddress.postalCity}</span>
-              <span className="block">{companyAddress.country}</span>
-            </address>
+            <div className="mt-6 grid gap-8 sm:grid-cols-2 sm:gap-10">
+              {BRAND.offices.map((office) => (
+                <address
+                  key={office.label}
+                  className="not-italic text-sm leading-relaxed text-muted-foreground sm:text-base"
+                >
+                  <span className="block text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    {office.label}
+                  </span>
+                  <span className="mt-2 block font-medium text-foreground">
+                    {office.name}
+                  </span>
+                  {office.lines.map((line) => (
+                    <span key={line} className="mt-0.5 block first:mt-1">
+                      {line}
+                    </span>
+                  ))}
+                </address>
+              ))}
+            </div>
           </div>
         </SectionShell>
         <FooterSection />

@@ -36,7 +36,7 @@ export const CONTACT = {
     },
   ],
   addressSection: {
-    title: "Company address",
+    title: "Our offices",
   },
 } as const
 
