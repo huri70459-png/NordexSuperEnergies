@@ -35,6 +35,14 @@ export function FooterSection() {
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               {BRAND.description}
             </p>
+            <address className="mt-5 max-w-xs not-italic text-sm leading-relaxed text-muted-foreground">
+              <span className="block font-medium text-foreground">
+                {BRAND.companyAddress.legalName}
+              </span>
+              <span className="mt-1 block">{BRAND.companyAddress.street}</span>
+              <span className="block">{BRAND.companyAddress.postalCity}</span>
+              <span className="block">{BRAND.companyAddress.country}</span>
+            </address>
           </div>
 
           <div>

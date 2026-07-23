@@ -35,6 +35,9 @@ export const CONTACT = {
       address: "noor@nordexsuperenergies.com",
     },
   ],
+  addressSection: {
+    title: "Company address",
+  },
 } as const
 
 export const CONTACT_MAILTO_RECIPIENTS = CONTACT.emails
