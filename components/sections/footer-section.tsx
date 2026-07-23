@@ -10,6 +10,7 @@ const footerLinks = {
     { label: "Antiques", href: "/heritage" },
     { label: "Energy", href: "/industrial" },
     { label: "Gallery", href: "/#gallery" },
+    { label: "Contact", href: "/contact" },
   ],
   about: [
     { label: "About", href: "/#about" },

@@ -15,4 +15,5 @@ export const SITE_NAV = [
   { label: "Antiques", href: "/heritage" },
   { label: "Energy", href: "/industrial" },
   { label: "Gallery", href: "/#gallery" },
+  { label: "Contact", href: "/contact" },
 ] as const
