@@ -1,11 +1,11 @@
 # Project handoff — Nordex Super Energies
 
 **Updated:** 2026-07-23  
-**Production branch:** `main` (tip: `git log -1` — currently `881223d`)  
+**Production branch:** `main` (tip: `git log -1` — currently **`714d392`**)  
 **Remote:** https://github.com/huri70459-png/NordexSuperEnergies  
 **Live site:** https://nordexsuperenergies.com (apex canonical; www → apex 308)  
 **Vercel:** project `nordex-super-energies` · team `raybeam-s-projects` · `prj_SkW1j6YezPiTDMgOiXTj1MEhgSmm`  
-**Session memory:** latest folder under `session/` (see `handoff.md` there)
+**Session memory:** `session/20260723_contact_deploy/handoff.md` (gitignored; also see newest `session/*`)
 
 ---
 
@@ -18,7 +18,7 @@ Dual-division institutional site + contact:
 | `/` | default | Dual-division **gateway** (Energy + Antiques) |
 | `/heritage` | `.theme-heritage` | Antiques / museum collection |
 | `/industrial` | `.theme-industrial` | Energy **portfolio** |
-| `/contact` | default | Contact form (mailto) + email cards + company address |
+| `/contact` | default | Contact form (mailto) + email cards + **head + branch offices** |
 
 **Brand lockup:** Energy Portfolio · Antiques (`content/brand.ts`)
 
@@ -47,9 +47,10 @@ Dual-division institutional site + contact:
 - [x] Mobile S1–S3 polish on `main` (`53ee267` / PR #2 era)  
 - [x] Google Sans site name lockup (`e8ca540`)  
 - [x] **Contact v1** (`9d37302`): `/contact`, mailto form, Arshad + Noor cards, nav + footer  
-- [x] **Company address** (`881223d`): brand content + contact page block + site footer  
-- [x] **Production:** pushed to `origin/main` and deployed via `vercel --prod` → aliased to apex  
-- [x] Live smoke 2026-07-23: `/` `/contact` `/heritage` `/industrial` all **200**; contact nav + Hamburg address present  
+- [x] **Head office (Hamburg)** (`881223d`): brand + contact + footer  
+- [x] **Branch office (Thane, India)** (`714d392`): `BRAND.offices[]` — contact “Our offices” + footer both locations  
+- [x] **Production:** `origin/main` @ `714d392` deployed via `vercel --prod` → apex  
+- [x] Live smoke 2026-07-23: `/` `/contact` `/heritage` `/industrial` **200**; dual offices on contact/footer
 
 ### Contact v1 behavior
 
@@ -152,6 +153,6 @@ docs/superpowers/specs/2026-07-22-contact-page-design.md
 |---------|--------|
 | `session/20260716_*` | Mobile review, pre-deploy, ALPHAv2 era |
 | `session/20260723_172537/` | Contact committed (pre-push snapshot) |
-| `session/20260723_contact_deploy/` | **Current** — contact + address live on production |
+| `session/20260723_contact_deploy/` | **Current** — contact, dual offices, production deploy, handoff |
 
 Start resume: **`session/20260723_contact_deploy/handoff.md`**

@@ -9,7 +9,8 @@
 | Item | Value |
 |------|--------|
 | Branch | `main` |
-| Tip | `881223d` (company address) · prior `9d37302` (contact page) |
+| Tip | **`714d392`** — India branch office + dual offices UI |
+| Prior | `842bff8` docs · `881223d` Hamburg address · `9d37302` contact page |
 | Remote | `origin/main` up to date |
 | Repo | https://github.com/huri70459-png/NordexSuperEnergies |
 | Live | https://nordexsuperenergies.com |
@@ -19,21 +20,23 @@
 
 | Page | Route | Status |
 | --- | --- | --- |
-| Home | `/` | Live; footer address |
+| Home | `/` | Live; footer dual offices |
 | Antiques | `/heritage` | Live |
 | Energy | `/industrial` | Live |
-| Contact | `/contact` | Live (mailto form + emails + address) |
+| Contact | `/contact` | Live — mailto form, emails, Head + Branch offices |
 
-## Brand
+## Brand / offices
 
 - Tagline: **Energy Portfolio · Antiques**
-- Contact emails: `arshad@…`, `noor@…` (need Cloudflare Email Routing for delivery)
-- Address: Nordex SE, Langenhorner Chaussee 600, 22418 Hamburg, Germany
+- Emails: `arshad@nordexsuperenergies.com`, `noor@nordexsuperenergies.com`
+- **Head office:** Nordex SE · Langenhorner Chaussee 600 · 22418 Hamburg · Germany  
+- **Branch office:** Nordex Super Energies · Centura Square 224, 2nd floor · Road no. 27, opp. Lanxess House · S.G. Brave Road, Wagle Estate · Thane, Maharashtra 400604 · India  
+- Source: `BRAND.offices` in `content/brand.ts`
 
 ## Ops pending
 
-1. Cloudflare Email Routing (free) — domain has no MX yet  
-2. Confirm legal name/address vs brand collision (Nordex SE)  
+1. **Cloudflare Email Routing (free)** — domain has no MX; without it contact mailto targets will not receive  
+2. Confirm legal head-office name/address vs brand collision (Nordex SE)  
 
 ## Run
 
