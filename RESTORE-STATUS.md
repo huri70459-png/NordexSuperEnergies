@@ -1,35 +1,39 @@
-# Project status (supersedes early restore timeline)
+# Project status
 
-**Last updated:** 2026-07-16  
+**Last updated:** 2026-07-23  
 **Canonical handoff:** [`PROJECT-HANDOFF.md`](PROJECT-HANDOFF.md)  
-**Agent session:** `session/20260716_152009/`
+**Agent session:** `session/20260723_contact_deploy/`
 
-## Git
+## Git / production
 
 | Item | Value |
 |------|--------|
-| Branch | `pre-deploy` |
-| Commits | `367af43` product · `f56d066` docs/handoff |
-| Remote | `origin/pre-deploy` (up to date) |
+| Branch | `main` |
+| Tip | `881223d` (company address) · prior `9d37302` (contact page) |
+| Remote | `origin/main` up to date |
 | Repo | https://github.com/huri70459-png/NordexSuperEnergies |
+| Live | https://nordexsuperenergies.com |
+| Vercel | `nordex-super-energies` / `raybeam-s-projects` |
 
 ## Live routes
 
-| Page | Route | Role | Status |
-| --- | --- | --- | --- |
-| Home | `/` | Dual-division gateway | Redesigned + audit polish |
-| Antiques | `/heritage` | Museum collection | Redesigned; polish only |
-| Energy | `/industrial` | Full energy portfolio | Redesigned; polish only |
+| Page | Route | Status |
+| --- | --- | --- |
+| Home | `/` | Live; footer address |
+| Antiques | `/heritage` | Live |
+| Energy | `/industrial` | Live |
+| Contact | `/contact` | Live (mailto form + emails + address) |
 
 ## Brand
 
 - Tagline: **Energy Portfolio · Antiques**
-- Content: `content/brand.ts`, `content/home.ts`, `content/heritage.ts`, `content/industrial.ts`
-- Media: `public/images/energy/*`, `public/images/heritage/*` only on live pages
+- Contact emails: `arshad@…`, `noor@…` (need Cloudflare Email Routing for delivery)
+- Address: Nordex SE, Langenhorner Chaussee 600, 22418 Hamburg, Germany
 
-## Historical restore (2026-07-12)
+## Ops pending
 
-Early dual-site restore from Omnisync evasion template is complete. Wind-corporate app archived under `archive/wind-corporate-pre-restore-20260712/`. Omnisync dumps remain local-only (`Omnisync-Mutated-Folder/`, gitignored).
+1. Cloudflare Email Routing (free) — domain has no MX yet  
+2. Confirm legal name/address vs brand collision (Nordex SE)  
 
 ## Run
 
@@ -37,9 +41,4 @@ Early dual-site restore from Omnisync evasion template is complete. Wind-corpora
 npm run dev
 ```
 
-Open http://localhost:3000 · `/heritage` · `/industrial`
-
-## Deploy zip
-
-Local: `Nordex-Super-Energies-Deployable.zip` (gitignored).  
-Regenerate: see `PROJECT-HANDOFF.md` or README.
+Open http://localhost:3000 · `/heritage` · `/industrial` · `/contact`
